@@ -1,0 +1,16 @@
+.book-img{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.book-img:hover{
+    
+    filter: blur(5px);
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

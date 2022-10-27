@@ -1,4 +1,4 @@
-import  './Navbarstyles.css';
+import  './Navbar.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Stack, Image} from '@chakra-ui/react'
@@ -8,9 +8,9 @@ function Navbar() {
     <nav className='nav'>
         <div className='nav-left'>
             <div className='logo'>
-                <Link to="/"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/200' /></Link>
+                <Link to="/"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' /></Link>
             </div>
-            <h1>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1>
+            <h1 className='slogan'>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1>
             
         </div>
         <div className='nav-right'>

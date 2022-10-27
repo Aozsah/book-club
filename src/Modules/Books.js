@@ -1,21 +1,26 @@
 import { Link } from 'react-router-dom'
+import { Image, Stack } from '@chakra-ui/react'
+import './Books.css';
+
 
 function Books() {
   return (
     <div>
         <ul>
+            <Stack direction='row' spacing={4} className= "homepage-books">
             <li>
-                <Link to="user/1" >User 1</Link>
+            <Link to="/Book1"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/100' /></Link>
             </li> 
             <li>
-                <Link to="user/2">User 2</Link>
+            <Link to="/Book2"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/100' /></Link>
             </li> 
             <li>
-                <Link to="user/3">User 3</Link>
+            <Link to="/Book3"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/100' /></Link>
             </li> 
             <li>
-                <Link to="user/4">User 4</Link>
+            <Link to="/Book4"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/100' /></Link>
             </li> 
+            </Stack>
         </ul>
     </div>
   )
