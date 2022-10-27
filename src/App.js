@@ -15,6 +15,7 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
+      <Route exact path='/' element={<Homepage />} />
         <Route path='/Login' element={<UserLogin />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/ContactUs' element={<ContactUs />} />

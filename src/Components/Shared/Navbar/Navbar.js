@@ -8,7 +8,7 @@ function Navbar() {
     <nav className='nav'>
         <div className='nav-left'>
             <div className='logo'>
-                <Link to="/home"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/200' /></Link>
+                <Link to="/"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/200' /></Link>
             </div>
             <h1>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1>
             
