@@ -10,7 +10,7 @@ function SubmitButton() {
   <Stack direction='row' spacing={4} align='center'>
   
   <Button colorScheme='teal' variant='outline' onClick={() => {
-    navigate('/home');
+    navigate('/');
   }}>
     Kaydet
   </Button>

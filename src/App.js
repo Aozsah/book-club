@@ -8,7 +8,7 @@ import Book from './Modules/Book';
 import UserLogin from './Components/Pages/UserLogin/UserLogin';
 import ContactUs from './Components/Pages/ContactUs/ContactUs';
 import Register from './Components/Pages/UserRegister/Register';
-
+import Popup from './Components/Shared/Pop-up/Pop-up';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path='/Books' element={<Books />} />
         <Route path='/Book1' element={<Book />} />
       </Routes>
+      <Popup />
 </BrowserRouter>
   );
 }

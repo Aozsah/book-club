@@ -6,7 +6,7 @@ function UserName() {
   return (
     <FormControl isRequired>
       <FormLabel>Kullanıcı Adı</FormLabel>
-      <Input placeholder='mtrcemre@gmail.com' />
+      <Input placeholder='safahanyildiz' />
     </FormControl>
   )
 }
