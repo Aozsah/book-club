@@ -1,9 +1,7 @@
 import { Button, Stack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
-
-
-function SubmitButton() {
+function UserLoginButton() {
   let navigate = useNavigate();
   return (
   <Stack direction='row' spacing={4} align='center'>
@@ -11,10 +9,10 @@ function SubmitButton() {
   <Button colorScheme='teal' variant='outline' onClick={() => {
     navigate('/');
   }}>
-    Kaydet
+    Giriş Yap
   </Button>
 </Stack>
   )
 }
 
-export default SubmitButton
+export default UserLoginButton

@@ -2,7 +2,7 @@ import React from 'react';
 import RegisterName from './RegisterName';
 import RegisterMail from './RegisterMail';
 import RegisterPassword from './RegisterPassword';
-import SubmitButton from '../../../Modules/SubmitButton';
+import UserRegisterButton from './UserRegisterButton';
 
 function Register() {
     return (
@@ -10,7 +10,7 @@ function Register() {
           <RegisterName />
           <RegisterMail />
           <RegisterPassword />
-          <SubmitButton />
+          <UserRegisterButton />
         </div>
        
       );
