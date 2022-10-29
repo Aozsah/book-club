@@ -49,7 +49,7 @@
   }
   
   .btnContainer {
-    display: flex;
+    display: block;
     padding: 1rem 1rem;
   }
   .btnContainer button {
@@ -63,7 +63,7 @@
   
   .btnPrimary {
     background-color: #411b57;
-    color: white;
+    color: white;    
   }
   
   .btnOutline {
