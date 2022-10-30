@@ -12,7 +12,6 @@ function Popup() {
       <button 
       onClick={() => setOpenModal(true)} 
       className='modalButton'>
-        Modal
       </button>
       <Modal 
       open={openModal} 

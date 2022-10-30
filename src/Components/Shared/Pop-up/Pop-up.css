@@ -1,13 +1,4 @@
-/* Modal Button */
-.modalButton {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 12px 24px;
-  }
-  
-  
+
   /* Modal */
   .overlay {
     /* background-color: rgba(0, 0, 0, 0.5); */
