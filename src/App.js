@@ -7,8 +7,8 @@ import Books from './Modules/Books';
 import Book from './Modules/Book';
 import UserLogin from './Components/Pages/UserLogin/UserLogin';
 import ContactUs from './Components/Pages/ContactUs/ContactUs';
-import Register from './Components/Pages/UserRegister/Register';
 import Popup from './Components/Shared/Pop-up/Pop-up';
+import Register from './Components/Pages/UserRegister/Register';
 
 function App() {
   return (
