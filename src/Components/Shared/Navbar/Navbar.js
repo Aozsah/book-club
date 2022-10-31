@@ -17,13 +17,13 @@ function Navbar() {
         <Stack direction='row' >
 
             <Link to="/Register">
-                <Button className='navButtons' colorScheme='teal'>Register</Button>
+                <Button className='navButtons' colorScheme='teal'>Kaydol</Button>
             </Link>
             <Link to="/Login">
-                <Button className='navButtons' colorScheme='blue'>Login</Button>
+                <Button className='navButtons' colorScheme='blue'>Giriş Yap</Button>
             </Link>
             <Link to="/ContactUs">
-                <Button className='navButtons' colorScheme='twitter'>Contact Us</Button>
+                <Button className='navButtons' colorScheme='twitter'>İletişim</Button>
             </Link>
         </Stack>
         </div>
