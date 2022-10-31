@@ -14,7 +14,7 @@ function Navbar() {
             
         </div>
         <div className='nav-right'>
-        <Stack direction='row' >
+        <Stack direction='row' spacing={3}>
 
             <Link to="/Register">
                 <Button className='navButtons' colorScheme='teal'>Kaydol</Button>
