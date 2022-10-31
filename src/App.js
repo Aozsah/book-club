@@ -21,8 +21,9 @@ function App() {
         <Route path='/ContactUs' element={<ContactUs />} />
         <Route path='/Books' element={<Books />} />
         <Route path='/Book1' element={<Book />} />
+
       </Routes>
-      <Popup />
+      
 </BrowserRouter>
   );
 }

@@ -3,7 +3,6 @@ import { Image, Stack } from '@chakra-ui/react'
 import './Books.css';
 import React, { useState } from 'react';
 import Modal from '../Components/Shared/Pop-up/Modal';
-import TransitionsModal from '../Components/Shared/Pop-up/popup';
 
 
 
