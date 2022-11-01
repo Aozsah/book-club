@@ -23,6 +23,7 @@ function App() {
         <Route path='/Book1' element={<Book />} />
 
       </Routes>
+      <Footer />
       
 </BrowserRouter>
   );

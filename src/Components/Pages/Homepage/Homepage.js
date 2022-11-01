@@ -7,6 +7,10 @@ function Homepage() {
     <div>
       <Books />
       <BookClubs />
+      <BookClubs />
+
+      <BookClubs />
+
     </div>
   )
 }

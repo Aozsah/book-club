@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 
 // Bu klasör kullanılacaksa RegisterMail,Name,Password ve Button dosyaları silinebilir...
@@ -31,6 +32,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
+  let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -125,6 +128,9 @@ export default function Register() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                navigate('/');
+              }}
             >
               Kaydol
             </Button>
