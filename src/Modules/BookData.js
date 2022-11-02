@@ -1,6 +1,3 @@
-import { Image } from '@chakra-ui/react'
-
-
 const Data = [
     {
       id: 1,

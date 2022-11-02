@@ -3,7 +3,7 @@ import { Image, Stack } from '@chakra-ui/react'
 import './Books.css';
 import React, { useState } from 'react';
 import Modal from '../Components/Shared/Pop-up/Modal';
-import Data from './Data';
+import BookData from './BookData'
 
 function Books() {
   const [openModal, setOpenModal] = useState(false);
@@ -13,7 +13,7 @@ function Books() {
     <div>
       <ul>
 
-      {Data.map((item,index) => {
+      {BookData.map((item,index) => {
         return(
           <Stack direction='row' spacing={4} className= "homepage-books">
                 <li className='block'>         

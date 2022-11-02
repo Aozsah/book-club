@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Image, Stack } from '@chakra-ui/react'
 import React, { useState } from 'react';
 import Modal from '../Components/Shared/Pop-up/Modal';
-import Data from './Data';
+import BookClubData from './BookData';
 import './BookClubs.css';
 
 
@@ -14,7 +14,7 @@ function BookClubs() {
     <div>
       <ul>
 
-      {Data.map((item,index) => {
+      {BookClubData.map((item,index) => {
         return(
           <Stack direction='row' spacing={4} className= "homepage-books">
                 <li className='block'>         
