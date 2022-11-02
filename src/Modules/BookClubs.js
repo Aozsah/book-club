@@ -18,9 +18,9 @@ function BookClubs() {
         return(
           <Stack direction='row' spacing={4} className= "homepage-books">
                 <li className='block'>         
-          <Link to={item.link}><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' />
-            </Link>       
-            <button onClick={() => setOpenModal(true)} className='modalButton'>Kitabı İncele</button><Modal open={openModal} onClose={() => setOpenModal(false)} />
+            <Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' onClick={() => setOpenModal(true)} /><Modal open={openModal} onClose={() => setOpenModal(false)} />
+    
+            <button onClick={() => setOpenModal(true)} className='modalButton'>Klübü İncele</button><Modal open={openModal} onClose={() => setOpenModal(false)} />
             </li>
           </Stack>
         )
