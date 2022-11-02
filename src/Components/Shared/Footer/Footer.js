@@ -8,7 +8,7 @@ function Footer () {
     <footer>
       <hr className="footer-seperator" />
       <section className="footer-social-media">
-        <a href="/" target="_blank" rel="noopener noreferrer" >LinkedIn</a>
+        <a href="https://www.linkedin.com/in/emre-mataraci/" target="_blank" rel="noopener noreferrer" >LinkedIn</a>
       </section>
       <section className="footer-info">
         <section className="footer-info-left">

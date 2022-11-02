@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Image, Stack } from '@chakra-ui/react'
 import './Books.css';
 import React, { useState } from 'react';
@@ -13,11 +12,11 @@ function Books() {
     <div>
       <ul>
 
-      {BookData.map((item,index) => {
+      {BookData.map((item) => {
         return(
-          <Stack direction='row' spacing={4} className= "homepage-books">
-                <li className='block'>         
-          <Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' onClick={() => setOpenModal(true)} /><Modal open={openModal} onClose={() => setOpenModal(false)} />
+          <Stack direction='row' spacing={4} className= "homepage-books" key={item.id}>
+                <li className='block' >         
+          <Image className='booksImg' src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' onClick={() => setOpenModal(true)} /><Modal open={openModal} onClose={() => setOpenModal(false)} />
       
             <button onClick={() => setOpenModal(true)} className='modalButton'>Kitabı İncele</button><Modal open={openModal} onClose={() => setOpenModal(false)} />
             </li>

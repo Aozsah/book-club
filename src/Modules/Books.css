@@ -9,3 +9,7 @@
 ul{
     display: flex;
 }
+
+.booksImg{
+    cursor: pointer;
+}
