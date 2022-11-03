@@ -1,8 +1,12 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './Mail.css';
+import { useNavigate } from 'react-router-dom'
+
 
 export const Mail = () => {
+    let navigate = useNavigate();
+
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -13,8 +17,9 @@ export const Mail = () => {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
-      });
-  };
+        })
+        .finally(() => navigate('/'))
+    };
 
   return (
     <form className='pass' ref={form} onSubmit={sendEmail}>
