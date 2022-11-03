@@ -97,7 +97,7 @@ export default function UserLogin() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="http://localhost:3000/ResetPassword" variant="body2">
                   Şifreni mi unuttun?
                 </Link>
               </Grid>

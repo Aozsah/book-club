@@ -9,6 +9,8 @@ import UserLogin from './Components/Pages/UserLogin/UserLogin';
 import ContactUs from './Components/Pages/ContactUs/ContactUs';
 import Popup from './Components/Shared/Pop-up/Pop-up';
 import Register from './Components/Pages/UserRegister/Register';
+import ResetPassword from './Components/Pages/ResetPassword/ResetPassword';
+import { Mail } from './Components/Pages/ResetPassword/mail';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/ContactUs' element={<ContactUs />} />
         <Route path='/Books' element={<Books />} />
         <Route path='/Book1' element={<Book />} />
+        <Route path='/ResetPassword' element={<Mail />} />
+
 
       </Routes>
       <Footer />
