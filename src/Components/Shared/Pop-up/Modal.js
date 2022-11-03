@@ -13,6 +13,8 @@ const Modal = ({ open,onClose }) => {
             <p onClick={onClose} className='closeBtn'>X</p>
             <div className='content'>
               <h1>Güzel Seçim!</h1>
+              <br />
+
               <p>Martin Eden, 1909'da Amerikalı yazar Jack London tarafından yazılan ve yazar olmanın mücadelesini veren genç işçi Martin Eden'i konu edinen romandır. Kitabın yazarı olan London'ın aksine protagonist Eden, sosyalizmi "köle ahlakı" olarak niteleyerek reddetmekte ve onun yerine Nietzsche'nin bireyciliğine inanmaktadır</p>
             </div>
             <div className='btnContainer'>
