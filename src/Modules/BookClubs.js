@@ -20,13 +20,14 @@ function BookClubs() {
                 <li className='block' key={item.id}>         
             <Image className='bookClubImg' src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' onClick={() => setOpenModal(true)} /><Modal open={openModal} onClose={() => setOpenModal(false)} />
     
-            <button onClick={() => setOpenModal(true)} className='modalButton'>Klübü İncele</button><Modal open={openModal} onClose={() => setOpenModal(false)} />
+            <button onClick={() => setOpenModal(true)} className='modalButton'>Klübü İncele</button>
             </li>
           </Stack>
         )
       })}
 
-      </ul>      
+      </ul>   
+      <Modal open={openModal} onClose={() => setOpenModal(false)} />   
     </div>
   )
 }

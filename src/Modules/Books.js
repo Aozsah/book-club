@@ -18,13 +18,14 @@ function Books() {
                 <li className='block' >         
           <Image className='booksImg' src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' onClick={() => setOpenModal(true)} /><Modal open={openModal} onClose={() => setOpenModal(false)} />
       
-            <button onClick={() => setOpenModal(true)} className='modalButton'>Kitabı İncele</button><Modal open={openModal} onClose={() => setOpenModal(false)} />
+            <button onClick={() => setOpenModal(true)} className='modalButton'>Kitabı İncele</button>
             </li>
           </Stack>
         )
       })}
 
-      </ul>      
+      </ul>     
+      <Modal open={openModal} onClose={() => setOpenModal(false)} /> 
     </div>
   )
 }
