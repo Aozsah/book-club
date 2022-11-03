@@ -10,8 +10,9 @@ import ContactUs from './Components/Pages/ContactUs/ContactUs';
 import Popup from './Components/Shared/Pop-up/Pop-up';
 import Register from './Components/Pages/UserRegister/Register';
 import ResetPassword from './Components/Pages/ResetPassword/ResetPassword';
-import { Mail } from './Components/Pages/ResetPassword/mail';
+import { Mail } from './Components/Pages/ResetPassword/Mail';
 import Reset from './Components/Pages/ResetPassword/ResetPassword';
+import BookClub from './Modules/BookClub'
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path='/Book1' element={<Book />} />
         <Route path='/ResetPassword' element={<Mail />} />
         <Route path='/Reset' element={<Reset />} />
+        <Route path='/BookClub1' element={<BookClub />} />
+
 
       </Routes>
       <Footer />

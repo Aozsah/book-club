@@ -1,4 +1,4 @@
-.book-img{
+.club-img{
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -6,7 +6,7 @@
     margin-right: auto;
 }
 
-.book_description{
+.club_description{
     justify-content: space-between;
     font-size: 2rem;
     display: flex;
@@ -15,7 +15,7 @@
     margin-top: 3rem;
 }
 
-.book_container{
+.club_container{
     display: block;
     margin-left: 25%;
     margin-right: 25%;
