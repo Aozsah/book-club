@@ -11,6 +11,7 @@ import Popup from './Components/Shared/Pop-up/Pop-up';
 import Register from './Components/Pages/UserRegister/Register';
 import ResetPassword from './Components/Pages/ResetPassword/ResetPassword';
 import { Mail } from './Components/Pages/ResetPassword/mail';
+import Reset from './Components/Pages/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Route path='/Books' element={<Books />} />
         <Route path='/Book1' element={<Book />} />
         <Route path='/ResetPassword' element={<Mail />} />
-
+        <Route path='/Reset' element={<Reset />} />
 
       </Routes>
       <Footer />
