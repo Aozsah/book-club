@@ -1,7 +1,7 @@
 <h2 >Hey!
 I'm Emre, a front-end developer based in Istanbul, TR.
 </h2>
-<p>I was a 4th year civil engineering student when I met software. Now I'm working purely on front-end development and I've been coding last 1 year.</p>
+<p>I was a 4th year civil engineering student when I met software. Now I'm working purely on front-end development and I've been coding for last 1 year.</p>
 
 
 ## Author

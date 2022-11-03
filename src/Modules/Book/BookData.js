@@ -1,4 +1,4 @@
-const Data = [
+const BookData = [
     {
       id: 1,
       title: 'Martin Eden?',
@@ -44,4 +44,4 @@ const Data = [
 
       },
   ]
-  export default Data
+  export default BookData

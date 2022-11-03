@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route, Link, Routes, BrowserRouter} from 'react
 import Navbar from './Components/Shared/Navbar/Navbar.js'
 import Homepage from './Components/Pages/Homepage/Homepage.js';
 import Footer from './Components/Shared/Footer/Footer';
-import Books from './Modules/Books';
-import Book from './Modules/Book';
+import Book from './Modules/Book/Book';
+import Books from './Modules/Book/Books';
 import UserLogin from './Components/Pages/UserLogin/UserLogin';
 import ContactUs from './Components/Pages/ContactUs/ContactUs';
 import Popup from './Components/Shared/Pop-up/Pop-up';
@@ -12,9 +12,11 @@ import Register from './Components/Pages/UserRegister/Register';
 import ResetPassword from './Components/Pages/ResetPassword/ResetPassword';
 import { Mail } from './Components/Pages/ResetPassword/Mail';
 import Reset from './Components/Pages/ResetPassword/ResetPassword';
-import BookClub from './Modules/BookClub'
+import BookClub from './Modules/BookClub/BookClub'
 
 function App() {
+
+
   return (
     <BrowserRouter>
     <Navbar />

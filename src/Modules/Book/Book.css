@@ -1,4 +1,5 @@
 .book-img{
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -19,4 +20,15 @@
     display: block;
     margin-left: 25%;
     margin-right: 25%;
+}
+
+.book_name , .book_author{
+    display: block  ;
+}
+
+.book_link{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
 }

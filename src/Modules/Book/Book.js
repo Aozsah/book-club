@@ -6,7 +6,7 @@ import './Book.css'
 function Book() {
   return (
     <div className='book_container'>
-      <Link><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/350' className='book-img'/></Link>
+      <Link className='book_link'><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/350' className='book-img'/></Link>
       <div className='book_description'>
       <h1 className='book_name'>book name</h1>
       <h2 className='book_author'>Author</h2>

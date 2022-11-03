@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Image, Stack } from '@chakra-ui/react'
 import React, { useState } from 'react';
-import Modal from '../Components/Shared/Pop-up/Modal';
-import BookClubData from './BookData';
-import './BookClubs.css';
+import Modal from '../../Components/Shared/Pop-up/Modal';
+import BookClubData from './BookClubData';
+import './BookClubs.css'
 
 
 function BookClubs() {

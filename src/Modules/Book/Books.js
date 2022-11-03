@@ -1,8 +1,8 @@
 import { Image, Stack } from '@chakra-ui/react'
 import './Books.css';
 import React, { useState } from 'react';
-import Modal from '../Components/Shared/Pop-up/Modal';
-import BookData from './BookData'
+import Modal from '../../Components/Shared/Pop-up/Modal';
+import BookData from './BookData';
 
 function Books() {
   const [openModal, setOpenModal] = useState(false);

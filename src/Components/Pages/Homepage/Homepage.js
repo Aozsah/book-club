@@ -1,6 +1,6 @@
 import React from 'react'
-import Books from '../../../Modules/Books'
-import BookClubs from '../../../Modules/BookClubs'
+import Books from '../../../Modules/Book/Books'
+import BookClubs from '../../../Modules/BookClub/BookClubs'
 
 function Homepage() {
   return (
