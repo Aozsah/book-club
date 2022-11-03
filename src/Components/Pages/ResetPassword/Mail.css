@@ -38,9 +38,6 @@ input:focus {
         border: 2px solid rgba(0, 206, 158, 1);
       }
     
-    label {
-      margin-top: 1rem;
-    }
     input[type="submit"] {
       margin-top: 2rem;
       cursor: pointer;
