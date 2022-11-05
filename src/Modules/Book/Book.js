@@ -1,18 +1,37 @@
-import {  Link } from 'react-router-dom'
+import {  Route,Routes,Link } from 'react-router-dom'
 import { Image } from '@chakra-ui/react'
 import './Book.css'
-
+import { useParams } from 'react-router-dom'
+import BookData from './BookData'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function Book() {
+  const [loading,setLoading] = useState(true)
+  const [book, setBook] = useState({})
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then((res) => setBook(res.data))
+    .finally(() => setLoading(false))
+
+  }, [id])
+
   return (
     <div className='book_container'>
-      <Link className='book_link'><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/350' className='book-img'/></Link>
-      <div className='book_description'>
-      <h1 className='book_name'>book name</h1>
-      <h2 className='book_author'>Author</h2>
-      </div>
-      <p  className='book_summary'>Here is the description of the book.Here is the description of the book.Here is the description of the book.Here is the description of the book.Here is the description of the book.Here is the description of the book.Here is the description of the book.</p>
+      {loading && <div>Loading...</div>}
+
+      <code>
+        {JSON.stringify(book) }
+      </code>
+      <br />
+      <br />
+      <br />
+      <Link to={`/book/${parseInt(id) +1}`}>Next Book ({parseInt(id)+1})</Link>
     </div>
+    
+    
   )
 }
 

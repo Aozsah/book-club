@@ -16,13 +16,13 @@ function Navbar() {
         <div className='nav-right'>
         <Stack direction='row' spacing={3}>
 
-            <Link to="/Register">
+            <Link to="/register">
                 <Button className='navButtons' colorScheme='teal'>Kaydol</Button>
             </Link>
-            <Link to="/Login">
+            <Link to="/login">
                 <Button className='navButtons' colorScheme='blue'>Giriş Yap</Button>
             </Link>
-            <Link to="/ContactUs">
+            <Link to="/contactus">
                 <Button className='navButtons' colorScheme='twitter'>İletişim</Button>
             </Link>
         </Stack>

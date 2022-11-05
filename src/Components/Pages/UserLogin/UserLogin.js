@@ -97,12 +97,12 @@ export default function UserLogin() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="http://localhost:3000/ResetPassword" variant="body2">
+                <Link href="http://localhost:3000/resetpassword" variant="body2">
                   Şifreni mi unuttun?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="http://localhost:3000/Register" variant="body2">
+                <Link href="http://localhost:3000/register" variant="body2">
                   {"Bir hesabın yok mu? Hemen kaydol"}
                 </Link>
               </Grid>

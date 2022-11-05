@@ -1,19 +1,38 @@
-import {  Link } from 'react-router-dom'
+import {  Route,Routes,Link } from 'react-router-dom'
 import { Image } from '@chakra-ui/react'
 import './BookClub.css'
+import { useParams } from 'react-router-dom'
+import BookClubData from './BookClubData'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
+function Book() {
+  const [loading,setLoading] = useState(true)
+  const [book, setBook] = useState({})
+  const { id } = useParams();
 
-function club() {
+  useEffect(() => {
+    axios(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then((res) => setBook(res.data))
+    .finally(() => setLoading(false))
+
+  }, [id])
+
   return (
-    <div className='club_container'>
-      <Link><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/350' className='club-img'/></Link>
-      <div className='club_description'>
-      <h1 className='club_name'>club name</h1>
-      </div>
-      <p  className='club_summary'>Here is the description of the club.Here is the description of the club.Here is the description of the club.Here is the description of the club.Here is the description of the club.Here is the description of the club.Here is the description of the club.</p>
-      <button>Bize katıl!</button>
+    <div className='book_container'>
+      {loading && <div>Loading...</div>}
+
+      <code>
+        {JSON.stringify(book) }
+      </code>
+      <br />
+      <br />
+      <br />
+      <Link to={`/bookclub/${parseInt(id) +1}`}>Next Club ({parseInt(id)+1})</Link>
     </div>
+    
+    
   )
 }
 
-export default club
+export default Book

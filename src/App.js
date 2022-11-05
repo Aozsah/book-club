@@ -22,14 +22,15 @@ function App() {
     <Navbar />
       <Routes>
       <Route exact path='/' element={<Homepage />} />
-        <Route path='/Login' element={<UserLogin />} />
-        <Route path='/Register' element={<Register />} />
-        <Route path='/ContactUs' element={<ContactUs />} />
-        <Route path='/Books' element={<Books />} />
-        <Route path='/Book1' element={<Book />} />
-        <Route path='/ResetPassword' element={<Mail />} />
-        <Route path='/Reset' element={<Reset />} />
-        <Route path='/BookClub1' element={<BookClub />} />
+        <Route path='/login' element={<UserLogin />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/books' element={<Books />} />
+        <Route path='/bookclubs' element={<Books />} />
+        <Route path='/book/:id' element={<Book />} />
+        <Route path='/resetpassword' element={<Mail />} />
+        <Route path='/reset' element={<Reset />} />
+        <Route path='/bookclub/:id' element={<BookClub />} />
 
 
       </Routes>
