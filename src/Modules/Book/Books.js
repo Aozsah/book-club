@@ -5,41 +5,39 @@ import { useState, useEffect } from 'react';
 import BookData from './BookData';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import SimpleSlider from '../../Components/Functions/Slider';
 
 function Books() {
   // const [openModal, setOpenModal] = useState(false);
-  const [loading,setLoading] = useState(true)
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios ('https://jsonplaceholder.typicode.com/users')
+    axios ('https://jsonplaceholder.typicode.com/photos')
     .then((res) => setBooks(res.data))
-    .finally(() => setLoading(false))
   }, [])
 
   return (
-    
-    <div>
-                {loading && <div>Loading...</div>}
-
-      <ul>
-
-      {BookData.map((item) => {
+  <div className='booksContainer'>
+    <ul>
+      {books.map(book => {
         return(
-          <Stack direction='row' spacing={4} className= "homepage-books" key={item.id}>
-                <li className='block' >   
-                <Link to={`book/${item.id}`}>  
-          <Image className='booksImg' src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' />
-      </Link>
-            <button>{item.title}</button>
+          
+          <div key={book.id}>
+            <ul>
+              <li>
+                <SimpleSlider>
+                <Link to={`/book/${book.id}`}>
+                  <img className='booksImg' src={book.url} alt='book-img'/>
+                  <h2 className='booksTitle'>{book.title}</h2>
+                </Link>
+                </SimpleSlider>
             </li>
-          </Stack>
+            </ul>
+          </div>
         )
       })}
-
-      </ul>     
-     
-    </div>
+    </ul>     
+  </div>
   )
 }
 

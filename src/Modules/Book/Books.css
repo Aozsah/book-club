@@ -8,8 +8,21 @@
 
 ul{
     display: flex;
+    list-style: none;
+
 }
 
 .booksImg{
     cursor: pointer;
+    width: 150px;
+    height: 150px;
+    padding: 1rem;
 }
+
+.booksTitle{
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    padding: 1rem;
+}
+

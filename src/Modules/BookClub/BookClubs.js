@@ -8,19 +8,16 @@ import axios from 'axios';
 
 function Books() {
   // const [openModal, setOpenModal] = useState(false);
-  const [loading,setLoading] = useState(true)
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     axios ('https://jsonplaceholder.typicode.com/users')
     .then((res) => setBooks(res.data))
-    .finally(() => setLoading(false))
   }, [])
 
   return (
     
     <div>
-                {loading && <div>Loading...</div>}
 
       <ul>
 

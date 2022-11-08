@@ -1,12 +1,3 @@
-.book-img{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .book_description{
     justify-content: space-between;
     font-size: 2rem;
@@ -17,18 +8,43 @@
 }
 
 .book_container{
-    display: block;
-    margin-left: 25%;
-    margin-right: 25%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+
 }
 
 .book_name , .book_author{
     display: block  ;
 }
 
-.book_link{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.bookLink{
+    font-size: 2rem;
+    color: blue;
+}
+
+.bookAuthor{
+    font-size: 2rem;
+    color: red;
+}
+
+.bookFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookTitle{
+    font-size: 2rem;
+    min-width: none;
+    max-width: 600px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.bookDescription{
+    width: 600px;
+    padding: 1rem;
+    text-align: center;
 
 }
