@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import BookData from './BookData';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import SimpleSlider from '../../Components/Functions/Slider';
 
 function Books() {
   // const [openModal, setOpenModal] = useState(false);
@@ -25,12 +24,10 @@ function Books() {
           <div key={book.id}>
             <ul>
               <li>
-                <SimpleSlider>
                 <Link to={`/book/${book.id}`}>
                   <img className='booksImg' src={book.url} alt='book-img'/>
                   <h2 className='booksTitle'>{book.title}</h2>
                 </Link>
-                </SimpleSlider>
             </li>
             </ul>
           </div>
