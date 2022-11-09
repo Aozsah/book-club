@@ -1,12 +1,4 @@
-.club-img{
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.club_description{
+.bookClub_description{
     justify-content: space-between;
     font-size: 2rem;
     display: flex;
@@ -15,8 +7,44 @@
     margin-top: 3rem;
 }
 
-.club_container{
-    display: block;
-    margin-left: 25%;
-    margin-right: 25%;
+.bookClub_container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+
+}
+
+.bookClub_name , .bookClub_author{
+    display: block  ;
+}
+
+.bookClubLink{
+    font-size: 2rem;
+    color: blue;
+}
+
+.bookClubAuthor{
+    font-size: 2rem;
+    color: red;
+}
+
+.bookClubFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookClubTitle{
+    font-size: 2rem;
+    min-width: none;
+    max-width: 600px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.bookClubDescription{
+    width: 600px;
+    padding: 1rem;
+    text-align: center;
+
 }

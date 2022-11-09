@@ -1,42 +1,38 @@
 import { Image, Stack } from '@chakra-ui/react'
 import './BookClubs.css';
 import { useState, useEffect } from 'react';
-import BookClubData from './BookClubData'
 // import Modal from '../../Components/Shared/Pop-up/Modal';
+import BookClubData from './BookClubData';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 function Books() {
   // const [openModal, setOpenModal] = useState(false);
-  const [books, setBooks] = useState([]);
+  const [bookClubs, setBookClubs] = useState([]);
 
   useEffect(() => {
-    axios ('https://jsonplaceholder.typicode.com/users')
-    .then((res) => setBooks(res.data))
+    axios ('https://www.breakingbadapi.com/api/characters?limit=11')
+    .then((res) => setBookClubs(res.data))
   }, [])
 
   return (
-    
-    <div>
-
-      <ul>
-
-      {BookClubData.map((item) => {
+  <div className='bookClubsContainer'>
+    <ul>
+      {bookClubs.map(bookClub => {
         return(
-          <Stack direction='row' spacing={4} className= "homepage-books" key={item.id}>
-                <li className='block' >   
-                <Link to={`bookclub/${item.id}`}>  
-          <Image className='booksImg' src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' />
-      </Link>
-            <button>{item.title}</button>
-            </li>
-          </Stack>
+          
+          <div key={bookClub.id}>
+
+                <Link to={`/bookclub/${bookClub.char_id}`}>
+                  <img className='booksImg' src={bookClub.img} alt='book-img'/>
+                  <h2 className='booksTitle'>{bookClub.occupation}</h2>
+                </Link>
+
+          </div>
         )
       })}
-
-      </ul>     
-     
-    </div>
+    </ul>     
+  </div>
   )
 }
 

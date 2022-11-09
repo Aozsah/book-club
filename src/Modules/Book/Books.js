@@ -11,7 +11,7 @@ function Books() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios ('https://jsonplaceholder.typicode.com/photos')
+    axios ('https://www.breakingbadapi.com/api/characters?limit=7')
     .then((res) => setBooks(res.data))
   }, [])
 
@@ -22,14 +22,12 @@ function Books() {
         return(
           
           <div key={book.id}>
-            <ul>
               <li>
-                <Link to={`/book/${book.id}`}>
-                  <img className='booksImg' src={book.url} alt='book-img'/>
-                  <h2 className='booksTitle'>{book.title}</h2>
+                <Link to={`/book/${book.char_id}`}>
+                  <img className='booksImg' src={book.img} alt='book-img'/>
+                  <h2 className='booksTitle'>{book.occupation}</h2>
                 </Link>
             </li>
-            </ul>
           </div>
         )
       })}

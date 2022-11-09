@@ -1,15 +1,6 @@
-.homepage-books{
-    padding-left: 1rem;
-    margin-left: 1rem;
-    list-style: none;
-    margin-top: 1rem;
-}
-
-
 ul{
     display: flex;
     list-style: none;
-
 }
 
 .booksImg{
