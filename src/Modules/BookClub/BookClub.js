@@ -18,7 +18,7 @@ function BookClub() {
 
   return (
     <div className='bookClub_container'>
-      <div key={bookClub.id}>
+      <div>
         <ul>
           <li>
             <h1 className='bookClubTitle'>{bookClub.title} </h1>

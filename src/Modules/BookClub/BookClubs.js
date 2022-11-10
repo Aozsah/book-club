@@ -21,7 +21,7 @@ function Books() {
       {bookClubs.map(bookClub => {
         return(
           
-          <div key={bookClub.id}>
+          <div key={bookClub.char_id}>
 
                 <Link to={`/bookclub/${bookClub.char_id}`}>
                   <img className='booksImg' src={bookClub.img} alt='book-img'/>
