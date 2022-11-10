@@ -14,6 +14,7 @@ import { Mail } from './Components/Pages/ResetPassword/Mail';
 import Reset from './Components/Pages/ResetPassword/ResetPassword';
 import BookClub from './Modules/BookClub/BookClub'
 import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
+import Slider from './Components/Functions/Slider/Slider';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
     <Navbar />
+    <Slider />
       <Routes>
         <Route exact path='/' element={<Homepage />} />
         <Route path='/login' element={<UserLogin />} />
