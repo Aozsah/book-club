@@ -11,18 +11,22 @@ function Book() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://jsonplaceholder.typicode.com/photos/${id}`)
-    .then((res) => setBook(res.data))
+    axios(`https://www.breakingbadapi.com/api/characters/${id}`)
+    .then((res) => {
+      setBook(res.data[0])
+      console.log(res)
+
+    })
 
   }, [id])
 
   return (
     <div className='book_container'>
-      <div key={book.id}>
+      <div key={book.char_id}>
         <ul>
           <li>
-            <h1 className='bookTitle'>{book.title} </h1>
-              <img className='bookImg' src={book.url} alt='book-img'/>
+            <h1 className='bookTitle'>{book.name} </h1>
+                  <img className='bookImg' src={book.img} />
                 <div className='bookFooter'>
                   <h2 className='bookAuthor'>Author</h2>
                   <a className='bookLink' href={`/book/${parseInt(id) +1}`}>Next Book ({parseInt(id)+1})</a>

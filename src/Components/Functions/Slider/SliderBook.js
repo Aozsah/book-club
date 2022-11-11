@@ -5,6 +5,7 @@ import './SliderBook.css'
 import axios from 'axios';
 
 
+
 function SliderBook() {
   const [width, setWidth] = useState(0);
   const [books, setBooks] = useState([]);
@@ -16,7 +17,10 @@ function SliderBook() {
 
   useEffect(() => {
     axios ('https://www.breakingbadapi.com/api/characters?limit=30')
-    .then((res) => setBooks(res.data))
+    .then((res) =>{ 
+      setBooks(res.data)
+    console.log(res)
+    })
   }, [])
   return (
     <div className='sliderContainer'>
