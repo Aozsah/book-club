@@ -1,7 +1,6 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    margin: 1.5rem  ;
 }
 
 .nav-left {
@@ -14,7 +13,8 @@
 }
 
 .slogan{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin: 1rem;
     color: #c44faa;
 }
+

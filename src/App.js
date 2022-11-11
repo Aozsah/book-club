@@ -13,12 +13,18 @@ import { Mail } from './Components/Pages/ResetPassword/Mail';
 import Reset from './Components/Pages/ResetPassword/ResetPassword';
 import BookClub from './Modules/BookClub/BookClub'
 import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
+import BookClubs from './Modules/BookClub/BookClubs'
 
 function App() {
 
 
   return (
+    
     <BrowserRouter>
+    <div class="container">
+  <div class="col-sm-12 col-md-12">
+
+
     <Navbar />
       <Routes>
         <Route exact path='/' element={<Homepage />} />
@@ -26,7 +32,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/contactus' element={<ContactUs />} />
         <Route path='/books' element={<Books />} />
-        <Route path='/bookclubs' element={<Books />} />
+        <Route path='/bookclubs' element={<BookClubs />} />
         <Route path='/book/:id' element={<Book />} />
         <Route path='/resetpassword' element={<Mail />} />
         <Route path='/reset' element={<Reset />} />
@@ -36,7 +42,8 @@ function App() {
 
       </Routes>
       <Footer />
-      
+      </div>
+</div>
 </BrowserRouter>
   );
 }
