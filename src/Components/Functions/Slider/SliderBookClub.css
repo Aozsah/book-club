@@ -1,0 +1,28 @@
+.clubItem{
+    width: 30rem;
+    padding: 40px;
+}
+
+.clubImg{
+    min-width: 15rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.inner-carousel{
+    display: flex;
+    background: rgb(230, 173, 173);
+}
+
+.clubCarousel{
+    cursor: grab;
+    overflow: hidden;
+    background-color: rgb(230, 173, 173);
+    margin-top: 2rem;
+
+}
+img{
+    pointer-events: none;
+    max-width: 100px;
+    max-height: 500px;
+}

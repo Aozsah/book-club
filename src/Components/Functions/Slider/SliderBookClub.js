@@ -1,13 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import images from '../../../assets/images/images'
-import './Slider.css'
+import { Link } from 'react-router-dom'
+import './SliderBookClub.css'
 import axios from 'axios';
 
 
-function Slider() {
+function SliderBookClub() {
   const [width, setWidth] = useState(0);
-  const [books, setBooks] = useState([]);
+  const [bookClubs, setBookClubs] = useState([]);
   const carousel = useRef();
 
   useEffect(() => {
@@ -15,22 +15,24 @@ function Slider() {
   })
 
   useEffect(() => {
-    axios ('https://www.breakingbadapi.com/api/characters?limit=10')
-    .then((res) => setBooks(res.data))
+    axios ('https://www.breakingbadapi.com/api/characters?limit=12')
+    .then((res) => setBookClubs(res.data))
   }, [])
   return (
     <div>
       <motion.div
         ref={carousel}
-        className='carousel'
+        className='clubCarousel'
         whileTap={{cursor:"grabbing"}}>
         <motion.div
           drag="x"
           dragConstraints={{right:0, left: -width}} className='inner-carousel'>
-          {books.map(book => {
+      {bookClubs.map(bookClub => {
             return(
-              <motion.div key={book.char_id} className='item'>
-              <img className='motionImg' src={book.img} />
+              <motion.div key={bookClub.char_id} className='clubItem'>
+                <Link to={`/bookclub/${bookClub.char_id}`}>
+                  <img className='clubImg' src={bookClub.img}  />
+                </Link>
               </motion.div>
             )
           })}
@@ -40,4 +42,4 @@ function Slider() {
   )
 }
 
-export default Slider
+export default SliderBookClub

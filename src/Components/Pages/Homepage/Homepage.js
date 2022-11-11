@@ -1,16 +1,13 @@
 import React from 'react'
-import Books from '../../../Modules/Book/Books'
-import BookClubs from '../../../Modules/BookClub/BookClubs'
-import './Homepage.css'
+import SliderBook from '../../Functions/Slider/SliderBook'
+import SliderBookClub from '../../Functions/Slider/SliderBookClub'
+
 
 function Homepage() {
   return (
     <div className='homepage'>
-      <Books />
-      <BookClubs />
-      <BookClubs />
-
-      <BookClubs />
+      <SliderBook />
+      <SliderBookClub />
 
     </div>
   )

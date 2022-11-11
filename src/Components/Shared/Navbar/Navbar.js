@@ -2,13 +2,14 @@ import  './Navbar.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Stack, Image} from '@chakra-ui/react'
+import BookHubLogo from '..//..//..//assets/images/BookHubLogo.png'
 
 function Navbar() {
   return (
     <nav className='nav'>
         <div className='nav-left'>
             <div className='logo'>
-                <Link to="/"><Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/150' /></Link>
+                <Link to="/"><img src={BookHubLogo} /></Link>
             </div>
             <h1 className='slogan'>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1>
             
