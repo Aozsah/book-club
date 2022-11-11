@@ -15,7 +15,7 @@ function SliderBookClub() {
   })
 
   useEffect(() => {
-    axios ('https://www.breakingbadapi.com/api/characters?limit=12')
+    axios ('https://www.breakingbadapi.com/api/characters?limit=50')
     .then((res) => setBookClubs(res.data))
   }, [])
   return (

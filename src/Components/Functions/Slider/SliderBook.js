@@ -15,7 +15,7 @@ function SliderBook() {
   })
 
   useEffect(() => {
-    axios ('https://www.breakingbadapi.com/api/characters?limit=10')
+    axios ('https://www.breakingbadapi.com/api/characters?limit=30')
     .then((res) => setBooks(res.data))
   }, [])
   return (

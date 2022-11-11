@@ -1,17 +1,16 @@
 .clubItem{
     width: 30rem;
-    padding: 40px;
+    padding: 1rem;
 }
 
 .clubImg{
-    min-width: 15rem;
+    min-width: 10rem;
     width: 100%;
     border-radius: 1rem;
 }
 
 .inner-carousel{
     display: flex;
-    background: rgb(230, 173, 173);
 }
 
 .clubCarousel{
@@ -23,6 +22,4 @@
 }
 img{
     pointer-events: none;
-    max-width: 100px;
-    max-height: 500px;
 }
