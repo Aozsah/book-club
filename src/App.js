@@ -7,7 +7,6 @@ import Book from './Modules/Book/Book';
 import Books from './Modules/Book/Books';
 import UserLogin from './Components/Pages/UserLogin/UserLogin';
 import ContactUs from './Components/Pages/ContactUs/ContactUs';
-import Popup from './Components/Shared/Pop-up/Pop-up';
 import Register from './Components/Pages/UserRegister/Register';
 import { Mail } from './Components/Pages/ResetPassword/Mail';
 import Reset from './Components/Pages/ResetPassword/ResetPassword';
@@ -20,9 +19,9 @@ function App() {
 
   return (
     
-    <BrowserRouter>
-    <div class="container">
-  <div class="col-sm-12 col-md-12">
+    <BrowserRouter >
+    <div class="container-fluid">
+  <div class="col-sm-12 col-md-10">
 
 
     <Navbar />
