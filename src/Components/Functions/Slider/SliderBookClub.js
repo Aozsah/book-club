@@ -31,7 +31,7 @@ function SliderBookClub() {
             return(
               <motion.div key={bookClub.char_id} className='clubItem'>
                 <Link to={`/bookclub/${bookClub.char_id}`}>
-                  <img className='clubImg' src={bookClub.img}  />
+                  <img className='clubImg' src={bookClub.img}  alt="Resim Çalışmıyor!"/>
                 </Link>
               </motion.div>
             )

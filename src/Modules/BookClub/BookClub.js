@@ -7,12 +7,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function BookClub() {
-  const [bookClub, setbookClub] = useState({})
+  const [bookClub, setBookClub] = useState({})
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://jsonplaceholder.typicode.com/photos/${id}`)
-    .then((res) => setbookClub(res.data))
+    axios(`https://www.breakingbadapi.com/api/characters/${id}`)
+    .then((res) => {
+      setBookClub(res.data[0])
+      console.log(res)
+    })
 
   }, [id])
 
@@ -22,7 +25,7 @@ function BookClub() {
         <ul>
           <li>
             <h1 className='bookClubTitle'>{bookClub.title} </h1>
-              <img className='bookClubImg' src={bookClub.url} alt='bookClub-img'/>
+              <img className='bookClubImg' src={bookClub.img} alt='bookClub-img'/>
                 <div className='bookClubFooter'>
                   <h2 className='bookClubAuthor'>Author</h2>
                   <a className='bookClubLink' href={`/bookClub/${parseInt(id) +1}`}>Next bookClub ({parseInt(id)+1})</a>

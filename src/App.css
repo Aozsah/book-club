@@ -42,3 +42,7 @@
   margin-right: auto;
 }
 
+
+.container-fluid, html{
+  background-color: rgb(240, 216, 211) ;
+}

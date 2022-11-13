@@ -19,7 +19,6 @@ function SliderBook() {
     axios ('https://www.breakingbadapi.com/api/characters?limit=30')
     .then((res) =>{ 
       setBooks(res.data)
-    console.log(res)
     })
   }, [])
   return (
@@ -35,7 +34,7 @@ function SliderBook() {
             return(
               <motion.div key={book.char_id} className='bookItem'>
                 <Link to={`/book/${book.char_id}`}>
-                  <img className='bookImg' src={book.img} />
+                  <img className='bookImg' src={book.img} alt="Resim Çalışmıyor!"/>
                 </Link>
               </motion.div>
             )
