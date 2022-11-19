@@ -1,14 +1,15 @@
 import React from 'react'
-import SliderBook from '../../Functions/Slider/SliderBook'
-import SliderBookClub from '../../Functions/Slider/SliderBookClub'
+import SwiperBook from '../../Functions/Swiper/SwiperBook'
+import SwiperBookClub from '../../Functions/Swiper/SwiperBookClub'
+
 import './Homepage.css'
 
 
 function Homepage() {
   return (
     <div className='homepage'>
-      <SliderBook />
-      <SliderBookClub />
+      <SwiperBook />
+      <SwiperBookClub />
 
     </div>
   )

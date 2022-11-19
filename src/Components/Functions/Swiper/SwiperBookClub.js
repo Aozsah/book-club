@@ -11,16 +11,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-function SwiperSlider() {
+function SwiperBookClub() {
     const [width, setWidth] = useState(0);
-    const [books, setBooks] = useState([]);
+    const [bookClubs, setbookClubs] = useState([]);
     const carousel = useRef();
 
   
     useEffect(() => {
-      axios ('https://www.breakingbadapi.com/api/characters?limit=30')
+      axios ('https://www.breakingbadapi.com/api/characters?limit=60')
       .then((res) =>{ 
-        setBooks(res.data)
+        setbookClubs(res.data)
       })
     }, [])
 
@@ -29,21 +29,21 @@ function SwiperSlider() {
     <Swiper 
     modules={[Navigation, Pagination, A11y]}
     spaceBetween={50}
-    slidesPerView={3}
+    slidesPerView={8}
     navigation
     pagination={{ clickable: true }}
     onSwiper={(swiper) => console.log(swiper)}
     onSlideChange={() => console.log('slide change')}
     >
-      {books.map(book => {
+      {bookClubs.map(bookClub => {
         return(
-      <SwiperSlide  key={book.char_id}>
-        <Link to={`/book/${book.char_id}`}>
-          <img className='bookImg' src={book.img} alt="Resim Çalışmıyor!"/>
+      <SwiperSlide  key={bookClub.char_id}>
+        <Link to={`/bookClub/${bookClub.char_id}`}>
+          <img className='bookClubImg' src={bookClub.img} alt="Resim Çalışmıyor!"/>
         </Link>
       </SwiperSlide>
     )})}
     </Swiper>
   )
 }
-  export default SwiperSlider;
+  export default SwiperBookClub;

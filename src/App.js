@@ -14,7 +14,7 @@ import BookClub from './Modules/BookClub/BookClub'
 import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
 import BookClubs from './Modules/BookClub/BookClubs'
 import Profile from './Components/Pages/Profile/Profile';
-import Swiper from './Components/Functions/Swiper/Swiper';
+import Swiper from './Components/Functions/Swiper/SwiperBook';
 
 function App() {
 

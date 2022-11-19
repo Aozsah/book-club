@@ -1,8 +1,5 @@
-import {  Route,Routes,Link } from 'react-router-dom'
-import { Image } from '@chakra-ui/react'
 import './BookClub.css'
 import { useParams } from 'react-router-dom'
-import BookClubData from './BookClubData'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
