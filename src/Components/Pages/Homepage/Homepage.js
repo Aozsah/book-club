@@ -9,6 +9,7 @@ function Homepage() {
   return (
     <div className='homepage'>
       <SwiperBook />
+      <hr className='homepageHr' />
       <SwiperBookClub />
 
     </div>

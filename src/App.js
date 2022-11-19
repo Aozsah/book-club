@@ -23,7 +23,7 @@ function App() {
     
     <BrowserRouter >
     <div className="container-fluid">
-  <div className="col-sm-12 col-md-10">
+  <div className="col-sm-12 col-md-8">
 
 
     <Navbar />
