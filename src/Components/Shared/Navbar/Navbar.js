@@ -26,6 +26,9 @@ function Navbar() {
             <Link to="/contactus">
                 <Button className='navButtons' colorScheme='twitter'>İletişim</Button>
             </Link>
+            <Link to="/profile">
+                <Button className='navButtons' colorScheme='twitter'>Profil</Button>
+            </Link>
         </Stack>
         </div>
     </nav>

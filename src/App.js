@@ -13,6 +13,7 @@ import Reset from './Components/Pages/ResetPassword/ResetPassword';
 import BookClub from './Modules/BookClub/BookClub'
 import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
 import BookClubs from './Modules/BookClub/BookClubs'
+import Profile from './Components/Pages/Profile/Profile';
 
 function App() {
 
@@ -37,8 +38,7 @@ function App() {
         <Route path='/reset' element={<Reset />} />
         <Route path='/bookclub/:id' element={<BookClub />} />
         <Route path='*' element={<PageNotFound />} />
-
-
+        <Route path='/profile' element={<Profile />} />
       </Routes>
       <Footer />
       </div>
