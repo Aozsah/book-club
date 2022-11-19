@@ -14,6 +14,7 @@ import BookClub from './Modules/BookClub/BookClub'
 import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
 import BookClubs from './Modules/BookClub/BookClubs'
 import Profile from './Components/Pages/Profile/Profile';
+import Swiper from './Components/Functions/Swiper/Swiper';
 
 function App() {
 
@@ -21,8 +22,8 @@ function App() {
   return (
     
     <BrowserRouter >
-    <div class="container-fluid">
-  <div class="col-sm-12 col-md-10">
+    <div className="container-fluid">
+  <div className="col-sm-12 col-md-10">
 
 
     <Navbar />
@@ -39,6 +40,8 @@ function App() {
         <Route path='/bookclub/:id' element={<BookClub />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/swiper' element={<Swiper />} />
+
       </Routes>
       <Footer />
       </div>
