@@ -18,7 +18,7 @@ function ContactUs() {
           
           <div className='contact_div'>
           <img className='contact_img' src={require('..//..//..//assets/images/emremataraci.jpg')} />
-          <h2 className='contact_h2'>Ahmet Özkan Şahin  <h4>Back-end Developer</h4></h2>
+          <h2 className='contact_h2'>Ahmet Özkan Şahin  <h4 className='contact_h4'>Back-end Developer</h4></h2>
           </div>
 
           <div className='contact_div'>

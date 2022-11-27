@@ -7,7 +7,7 @@
 }
 
 .contact_div{
-    float: right;
+    float: left;
     width: 33%;
 }
 
@@ -18,4 +18,8 @@
 
 .contact_h1_title{
     text-align: center;
+}
+
+.contact_h4{
+    padding: 1rem;
 }
