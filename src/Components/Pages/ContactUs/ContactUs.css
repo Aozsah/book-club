@@ -1,0 +1,23 @@
+.contact_h2{
+    text-align: center;
+}
+
+.contact_img{
+    padding: 1rem;
+}
+
+.contact_div{
+    float: right;
+    width: 33%;
+    justify-content: first baseline;
+}
+
+.contact_main_div{
+    display: inline-block;
+    
+}
+
+.contact_h1_title{
+    text-align: center;
+    display: flex;
+}

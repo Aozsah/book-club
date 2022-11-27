@@ -40,7 +40,7 @@ footer {
   }
   
   .footer-info__name, .footer-info__returns {
-    text-align: start;
+    text-align: center;
   }
   
   .footer-info__email, .footer-info__terms {

@@ -11,7 +11,7 @@ function Navbar() {
             <div className='logo'>
                 <Link to="/"><img src={BookHubLogo} /></Link>
             </div>
-            <h1 className='slogan'>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1>
+            {/* <h1 className='slogan'>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1> */}
             
         </div>
         <div className='nav-right'>
