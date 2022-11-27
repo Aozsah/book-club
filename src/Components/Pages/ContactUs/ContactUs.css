@@ -9,7 +9,6 @@
 .contact_div{
     float: right;
     width: 33%;
-    justify-content: first baseline;
 }
 
 .contact_main_div{
@@ -19,5 +18,4 @@
 
 .contact_h1_title{
     text-align: center;
-    display: flex;
 }
