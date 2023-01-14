@@ -1,7 +1,7 @@
 import  './Navbar.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Stack, Image} from '@chakra-ui/react'
+import { Button, Stack} from '@chakra-ui/react'
 import BookHubLogo from '..//..//..//assets/images/BookHubLogo.png'
 
 function Navbar() {
@@ -9,7 +9,7 @@ function Navbar() {
     <nav className='nav'>
         <div className='nav-left'>
             <div className='logo'>
-                <Link to="/"><img src={BookHubLogo} /></Link>
+                <Link to="/"><img src={BookHubLogo} alt="" /></Link>
             </div>
             {/* <h1 className='slogan'>A ROOM WITHOUT BOOKS<br/> IS LIKE A BODY WITHOUT SOUL</h1> */}
             

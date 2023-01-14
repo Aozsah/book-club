@@ -8,9 +8,9 @@ function BookClub() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://www.breakingbadapi.com/api/characters/${id}`)
+    axios(`https://dummyjson.com/products/${id}`)
     .then((res) => {
-      setBookClub(res.data[0])
+      setBookClub(res.data)
       console.log(res)
     })
 
@@ -22,14 +22,14 @@ function BookClub() {
         <ul>
           <li>
             <h1 className='bookClubTitle'>{bookClub.title} </h1>
-              <img className='bookClubImg' src={bookClub.img} alt='bookClub-img'/>
+              <img className='bookClubImg' src={bookClub.images} alt='bookClub-img'/>
                 <div className='bookClubFooter'>
                   <h2 className='bookClubAuthor'>Author</h2>
                   <a className='bookClubLink' href={`/bookClub/${parseInt(id) +1}`}>Next bookClub ({parseInt(id)+1})</a>
                 
                 </div>
                 <div className='bookClubDescription'>
-                <code>{JSON.stringify(bookClub)}</code>
+                <code>{JSON.stringify(bookClub.description)}</code>
                 </div>
           </li>
         </ul>

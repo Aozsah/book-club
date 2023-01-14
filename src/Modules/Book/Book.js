@@ -8,11 +8,11 @@ function Book() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://www.breakingbadapi.com/api/characters/${id}`)
+    axios(`https://dummyjson.com/products/${id}`)
     .then((res) => {
-      setBook(res.data[0])
-      console.log(res)
-
+      setBook(res.data)
+      console.log(res.data)
+      
     })
 
   }, [id])
@@ -22,15 +22,15 @@ function Book() {
       <div key={book.char_id}>
         <ul>
           <li>
-            <h1 className='bookTitle'>{book.name} </h1>
-                  <img className='bookImg' src={book.img} />
+            <h1 className='bookTitle'>{book.title} </h1>
+                  <img className='bookImg' src={book.images} alt="" />
                 <div className='bookFooter'>
                   <h2 className='bookAuthor'>Author</h2>
                   <a className='bookLink' href={`/book/${parseInt(id) +1}`}>Next Book ({parseInt(id)+1})</a>
                 
                 </div>
                 <div className='bookDescription'>
-                <code>{JSON.stringify(book)}</code>
+                <code>{JSON.stringify(book.description)}</code>
                 </div>
           </li>
         </ul>

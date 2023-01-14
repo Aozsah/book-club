@@ -18,9 +18,9 @@ function SwiperBook() {
 
   
     useEffect(() => {
-      axios ('https://www.breakingbadapi.com/api/characters?limit=30')
+      axios ('https://dummyjson.com/products?limit=20')
       .then((res) =>{ 
-        setBooks(res.data)
+        setBooks(res.data.products)
       })
     }, [])
 
@@ -37,9 +37,9 @@ function SwiperBook() {
     >
       {books.map(book => {
         return(
-      <SwiperSlide  key={book.char_id}>
-        <Link to={`/book/${book.char_id}`}>
-          <img className='bookImg' src={book.img} alt="Resim Çalışmıyor!"/>
+      <SwiperSlide  key={book.id}>
+        <Link to={`/book/${book.id}`}>
+          <img className='bookImg' src={book.images[0]} alt="Resim Çalışmıyor!"/>
         </Link>
       </SwiperSlide>
     )})}

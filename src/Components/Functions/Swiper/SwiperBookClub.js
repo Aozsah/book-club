@@ -18,9 +18,9 @@ function SwiperBookClub() {
 
   
     useEffect(() => {
-      axios ('https://www.breakingbadapi.com/api/characters?limit=60')
+      axios ('https://dummyjson.com/products?limit=20')
       .then((res) =>{ 
-        setbookClubs(res.data)
+        setbookClubs(res.data.products)
       })
     }, [])
 
@@ -37,9 +37,9 @@ function SwiperBookClub() {
     >
       {bookClubs.map(bookClub => {
         return(
-      <SwiperSlide  key={bookClub.char_id}>
-        <Link to={`/bookClub/${bookClub.char_id}`}>
-          <img className='bookClubImg' src={bookClub.img} alt="Resim Çalışmıyor!"/>
+      <SwiperSlide  key={bookClub.id}>
+        <Link to={`/bookClub/${bookClub.id}`}>
+          <img className='bookClubImg' src={bookClub.images[0]} alt="Resim Çalışmıyor!"/>
         </Link>
       </SwiperSlide>
     )})}
