@@ -15,6 +15,7 @@ import PageNotFound from './Components/Pages/PageNotFound/PageNotFound';
 import BookClubs from './Modules/BookClub/BookClubs'
 import Profile from './Components/Pages/Profile/Profile';
 import Swiper from './Components/Functions/Swiper/SwiperBook';
+import Validation from './Components/Pages/Validation/Validation';
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
         <Route path='*' element={<PageNotFound />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/swiper' element={<Swiper />} />
+        <Route path='/validation' element={<Validation />} />
+
 
       </Routes>
       <Footer />
