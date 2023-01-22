@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const User = require("./user");
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
+mongoose.set('strictQuery', false);
 mongoose.connect(
   "mongodb+srv://matar:admin@cluster0.w9ayxko.mongodb.net/?retryWrites=true&w=majority",
   {
@@ -67,6 +68,7 @@ app.post("/register", (req, res) => {
 
       const newUser = new User({
         username: req.body.username,
+        email: req.body.email,
         password: hashedPassword,
       });
       await newUser.save();
