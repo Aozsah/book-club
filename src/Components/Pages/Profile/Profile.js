@@ -1,18 +1,23 @@
 import React from 'react'
 import  './Profile.css';
+import BookIRead from './BooksIRead';
+import ClubsImIn from './ClubsImIn';
 
 
 function Profile() {
   return (
     <div className='profile'>
       <div>
-        <div>
+        <div classname="row">
         <img className='profile_photo' src={require('..//..//..//assets/images/emremataraci.jpg')} />
         </div>
-        <h1 className="profile_h1_first" > Okuduğum Kitaplar</h1>
-        <h4 className="profile_h4"> Buraya Kitap Resimleri Gelecek...</h4>
+        <div className='bookIRead'>
+        <h1 className="profile_h1" > Okuduğum Kitaplar</h1>
+        <BookIRead className="bookiread"/>
+        </div>
+        <div className='clubsImIn'></div>
         <h1 className="profile_h1"> Kulüplerim</h1>
-        <h4 className="profile_h4"> Buraya Kulüp Resimleri Gelecek...</h4>
+        <ClubsImIn className="clubsImIn"/>
 
 
       </div>

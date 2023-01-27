@@ -1,8 +1,8 @@
 .profile{
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #f7f7f7;
 }
 
@@ -38,19 +38,12 @@
     align-items: center;
 }
 
-.book_img{
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-}
+
 
 @media (max-width: 768px) {
     .profile_photo{
         width: 200px;
         height: 200px;
-    }
-    .profile_h1_first{
-        font-size: 1.5rem;
     }
     .profile_h4{
         font-size: 1rem;
@@ -58,4 +51,20 @@
     .profile_h1{
         font-size: 1.5rem;
     }
+}
+
+
+.booksIRead{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    width: 100px;
+    height: 100px;
+}
+
+
+.clubsImIn{
+    margin-bottom: 5rem;
+    width: 100px;
+    height: 100px;
+
 }
