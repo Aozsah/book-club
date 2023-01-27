@@ -188,7 +188,7 @@ function Validation() {
       </Container>
     </ThemeProvider>
 
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -255,14 +255,13 @@ function Validation() {
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
-    </ThemeProvider>
-      <div>
+    </ThemeProvider> */}
+      {/* <div>
         <h1>Get User</h1>
         <button onClick={getUser}>Submit</button>
         {data ? <h1>Welcome Back {data.username}</h1> : null}
-      </div>
+      </div> */}
     </div>
   );
 }
