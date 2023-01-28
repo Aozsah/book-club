@@ -1,0 +1,86 @@
+.book-club-add-form {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 2rem auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-club-add-form label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    }
+    
+    .book-club-add-form input[type="text"],
+    .book-club-add-form textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    }
+    
+    .book-club-add-form input[type="file"] {
+    width: 100%;
+    margin: 8px 0;
+    }
+    
+    .book-club-add-form button[type="submit"] {
+    width: 30%;
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    }
+    
+    .book-club-add-form button[type="submit"]:hover {
+    background-color: #45a049;
+    }
+    
+    .book-club-add-form-cover {
+    width: 100%;
+    }
+    .book-club-add-form-name {
+    width: 100%;
+    }
+    .book-club-add-form-description {
+    width: 100%;
+    }
+    .book-club-add-form-cover-img {
+    width: 100%;
+    }
+    .book-club-add-form-submit{
+    width: 100%;
+    }
+    .book-club-add-form-cover-photo {
+    width: 100%;
+    }
+    .book-club-add-form-cover-name {
+    width: 100%;
+    }
+    .book-club-add-form-cover-description {
+    width: 100%;
+    }
+    .book-club-add-form-cover-photo-img {
+    width: 100%;
+    }
+    .book-club-add-form-submit {
+    width: 100%;
+    }
+    .book-club-add-form-cover-photo-button {
+    width: 100%;
+    }
+    .book-club-add-form-cover-photo-button:hover {
+    width: 100%;
+    }

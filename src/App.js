@@ -16,6 +16,8 @@ import BookClubs from './Modules/BookClub/BookClubs'
 import Profile from './Components/Pages/Profile/Profile';
 import Swiper from './Components/Functions/Swiper/SwiperBook';
 import Validation from './Components/Pages/Validation/Validation';
+import BookAdd from './Components/Pages/BookAdd/BookAdd';
+import BookClubAdd from './Components/Pages/BookClubAdd/BookClubAdd';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/swiper' element={<Swiper />} />
         <Route path='/validation' element={<Validation />} />
+        <Route path='/bookadd' element={<BookAdd />} />
+        <Route path='/bookclubadd' element={<BookClubAdd />} />
 
 
       </Routes>
