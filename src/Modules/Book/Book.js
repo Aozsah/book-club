@@ -1,48 +1,32 @@
-import './Book.css'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import './Book.css';
 
-function Book() {
-  const [book, setBook] = useState({})
-  const { id } = useParams();
+const Book = () => {
+  const [book, setBook] = useState({});
 
   useEffect(() => {
-    axios(`https://dummyjson.com/products/${id}`)
-    .then((res) => {
-      setBook(res.data)
-      console.log(res.data)
-      
-    })
-
-  }, [id])
+    fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&format=json&jscmd=data')
+      .then(response => response.json())
+      .then(data => {
+        setBook(data['ISBN:0451526538']);
+      });
+  }, []);
 
   return (
-    <div className='book_container'>
-      <div key={book.char_id}>
-        <ul>
-          <li>
-            <h1 className='bookTitle'>{book.title} </h1>
-                  <img className='bookImg' src={book.images} alt="" />
-                <div className='bookFooter'>
-                  <h2 className='bookAuthor'>Author</h2>
-                  <a className='bookLink' href={`/book/${parseInt(id) +1}`}>Next Book ({parseInt(id)+1})</a>
-                
-                </div>
-                <div className='bookDescription'>
-                <code>{JSON.stringify(book.description)}</code>
-                </div>
-          </li>
-        </ul>
-      </div>
-     
-      <br />
-      <br />
-      <br />
+    <div className="book-container">
+      <h2>Book Details</h2>
+      {book.authors && (
+        <div>
+          <img className="book-cover" src={book.cover.large} alt="Book Cover" />
+          <div className="book-details">
+            <p className="book-author">Author: {book.authors[0].name}</p>
+            <p className="book-publish-date">Publication Date: {book.publish_date}</p>
+            <p className="book-description">Description: {book.description}</p>
+          </div>
+        </div>
+      )}
     </div>
-    
-    
-  )
-}
+  );
+};
 
-export default Book
+export default Book;
