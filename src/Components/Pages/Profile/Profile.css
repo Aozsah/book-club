@@ -1,99 +1,91 @@
-.profile{
+.profile {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
     animation: fade-in 1s ease-in;
-
-}
-
-.profile_photo{
+  }
+  
+  .profile_photo {
     padding-left: 1rem;
     padding-top: 1rem;
     width: 300px;
     height: 300px;
     border-radius: 50%;
     margin-bottom: 20px;
-}
-
-.profile_header{
+  }
+  
+  .profile_header {
     display: flex;
-}
-
-.profile_h1_first{
+  }
+  
+  .profile_h1_first {
     font-size: 2rem;
     margin-top: 50px;
     margin-bottom: 20px;
     text-align: center;
-}
-
-.profile_h1{
+  }
+  
+  .profile_h1 {
     font-size: 2rem;
     margin-top: 50px;
     margin-bottom: 20px;
     text-align: center;
-}
-
-.profile_books{
+  }
+  
+  .profile_books {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.booksIRead{
+  }
+  
+  .booksIRead {
     margin-bottom: 4rem;
     width: 100px;
     height: 100px;
-}
-
-
-.clubsImIn{
+  }
+  
+  .clubsImIn {
     width: 100px;
     height: 100px;
     margin-bottom: 4rem;
-
-}
-
-.profile_buttons{
+  }
+  
+  .profile_buttons {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
- 
-
-}
-.edit_button {
-    position: absolute;
+  }
+  
+  .edit_button {
     background-color: blue;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
     font-size: 16px;
-    justify-content: flex-end;
     bottom: 0;
     right: 0;
+    position: absolute;
   }
   
   .submit_button {
-    position: absolute;
     background-color: green;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
     font-size: 16px;
-    display: flex;
-    justify-content: flex-end;
     bottom: 0;
     right: 0;
+    position: absolute;
   }
   
-
-  .profile_text{
-
+  .profile_text {
+    resize: none;
+    overflow: auto;
     box-sizing: border-box;
     text-align: start;
-        width: auto;
-        height: auto;
-      
+    width: 100%;
+    height: 150px;
   }
+  

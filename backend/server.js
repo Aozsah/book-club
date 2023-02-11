@@ -9,6 +9,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 const User = require("./user");
+// for start mongoose "node server.js"
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.set('strictQuery', false);
 mongoose.connect(
