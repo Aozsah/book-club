@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -10,29 +11,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom'
-
-
-
-// Bu dosya kullanılacaksa diğer dosyalar silinebilir...
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000/">
-        BookClub
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function UserLogin() {
+  const [showPopup, setShowPopup] = useState(false);
   let navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -42,6 +26,7 @@ export default function UserLogin() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    setShowPopup(true);
   };
 
   return (
@@ -55,8 +40,7 @@ export default function UserLogin() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
           <Typography component="h1" variant="h5">
             Giriş yap
           </Typography>
@@ -81,18 +65,8 @@ export default function UserLogin() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Beni hatırla"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                navigate('/')}}
-            >
+            <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Beni hatırla" />
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Giriş yap
             </Button>
             <Grid container>
@@ -109,7 +83,43 @@ export default function UserLogin() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        {showPopup && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              bgcolor: 'background.paper',
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              Giriş başarılı
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Typography>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setShowPopup(false);
+                navigate('/');
+              }}
+              >
+                Tamam
+            </Button>
+          </Box>
+        )}
+        <Box mt={5}>
+          <Typography variant="body2" color="text.secondary" align="center">
+            {'Hesabın yok mu? '}
+            <Link href="/register" color="primary">
+              Hemen kaydol
+            </Link>
+          </Typography>
+        </Box>
       </Container>
     </ThemeProvider>
   );

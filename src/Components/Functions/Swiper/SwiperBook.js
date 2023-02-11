@@ -32,8 +32,7 @@ function SwiperBook() {
     slidesPerView={5}
     navigation
     pagination={{ clickable: true }}
-    onSwiper={(swiper) => console.log(swiper)}
-    onSlideChange={() => console.log('slide change')}
+    
     >
       {books.map(book => {
         return(
