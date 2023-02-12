@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-
+import RegisterSuccessfulPopup from './RegisterSuccessfulPopup';
 
 // Bu klasör kullanılacaksa RegisterMail,Name,Password ve Button dosyaları silinebilir...
 
@@ -142,6 +142,7 @@ export default function Register() {
               </Grid>
             </Grid>
           </Box>
+          
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>

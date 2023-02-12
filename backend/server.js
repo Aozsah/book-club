@@ -47,9 +47,29 @@ require("./passportConfig")(passport);
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
 // Routes
+const Book = require("./book");
+
+app.post("/books", (req, res) => {
+  const newBook = new Book({
+    title: req.body.title,
+    author: req.body.author,
+    description: req.body.description,
+    imageUrl: req.body.imageUrl,
+    addedBy: req.user._id,
+  });
+  newBook.save((err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error saving book");
+    } else {
+      res.status(200).send("Book saved");
+    }
+  });
+});
+
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
+    if (err) throw err; 
     if (!user) res.send("No User Exists");
     else {
       req.logIn(user, (err) => {

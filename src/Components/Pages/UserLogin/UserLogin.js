@@ -12,39 +12,62 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import LoginSuccessfulPopup from './LoginSuccessfulPopup';
+import Auth from './auth';
 
 const theme = createTheme();
 
 export default function UserLogin() {
-  const [showPopup, setShowPopup] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState(false);
   let navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-    setShowPopup(true);
+    const email = data.get('email');
+    const password = data.get('password');
+
+    // Call the login API with user credentials
+    fetch('http://localhost:4000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      credentials: 'include',
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          // If the login is successful, set the `loggedIn` state to true and display the success popup.
+          setLoggedIn(true);
+        } else {
+          // If the login is unsuccessful, display the error message in a popup.
+          setError(true);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(true);
+      });
+  };
+
+  const handleCloseError = () => {
+    setError(false);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}></Avatar>
+        <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
           <Typography component="h1" variant="h5">
             Giriş yap
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -77,48 +100,37 @@ export default function UserLogin() {
               </Grid>
               <Grid item>
                 <Link href="http://localhost:3000/register" variant="body2">
-                  {"Bir hesabın yok mu? Hemen kaydol"}
+                  {'Bir hesabın yok mu? Hemen kaydol'}
                 </Link>
               </Grid>
             </Grid>
           </Box>
-        </Box>
-        {showPopup && (
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 24,
-              p: 4,
-            }}
-          >
-            <Typography variant="h6" gutterBottom>
-              Giriş başarılı
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </Typography>
-            <Button
-              variant="contained"
-              onClick={() => {
-                setShowPopup(false);
-                navigate('/');
+          {loggedIn && <LoginSuccessfulPopup onClose={() => setLoggedIn(false)} />}
+          {error && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                bgcolor: 'background.paper',
+                boxShadow: 24,
+                p: 4,
               }}
+            >
+              <Typography variant="h6" gutterBottom>
+                Hatalı Email veya Şifre
+              </Typography>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  setError(false);
+                }}
               >
                 Tamam
-            </Button>
-          </Box>
-        )}
-        <Box mt={5}>
-          <Typography variant="body2" color="text.secondary" align="center">
-            {'Hesabın yok mu? '}
-            <Link href="/register" color="primary">
-              Hemen kaydol
-            </Link>
-          </Typography>
+              </Button>
+            </Box>
+          )}
         </Box>
       </Container>
     </ThemeProvider>
