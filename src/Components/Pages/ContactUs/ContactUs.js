@@ -8,13 +8,10 @@ function ContactUs() {
 
           <div className='contact_div'>
           <img className='contact_img' src={require('..//..//..//assets/images/emremataraci.jpg')} alt=""/>
-          <h2 className='contact_h2'>Emre Mataracı  <h4>Front-end Developer & Team Leader</h4></h2>
+          <h2 className='contact_h2'>Emre Mataracı  <h4>Full-stack Developer</h4></h2>
           </div>
                   
-          <div className='contact_div'>
-          <img className='contact_img' src={require('..//..//..//assets/images/emremataraci.jpg')} alt=""/>
-          <h2 className='contact_h2'>Ahmet Özkan Şahin  <h4 className='contact_h4'>Back-end Developer</h4></h2>
-          </div>
+        
           
   
     </div>

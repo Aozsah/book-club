@@ -29,8 +29,8 @@ export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
   return (
     <div className="register-successful-popup">
       <div className="popup-content" ref={popupRef}>
-        <h2 className="popup-title">Kaydınız başarıyla tamamlandı</h2>
-        <p className="popup-message">Hoş geldiniz!</p>
+        <h2 className="popup-title">Kaydın başarıyla tamamlandı</h2>
+        <p className="popup-message">Şimdi Giriş Yapabilirsin🙂</p>
         <button className="popup-close" onClick={handleClose}>
           Tamam
         </button>
