@@ -99,8 +99,10 @@ export default function UserLogin() {
                 </Link>
               </Grid>
               <Grid item>
+             
+          {'Bir hesabın yok mu? '}
                 <Link href="http://localhost:3000/register" variant="body2">
-                  {'Bir hesabın yok mu? Hemen kaydol'}
+                 Hemen kaydol
                 </Link>
               </Grid>
             </Grid>

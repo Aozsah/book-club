@@ -116,21 +116,19 @@ function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="http://localhost:3000/Login" variant="body2">
-                  Zaten bir hesabın var mı? Giriş Yap
-                </Link>
+              <Typography variant="body2" color="textSecondary" align="center">
+            {'Zaten bir hesabınız var mı? '}
+            <Link href="/login" color="primary">
+              Giriş yap
+            </Link>
+          </Typography>
               </Grid>
             </Grid>
           </Box>
           <RegisterSuccessfulPopup isOpen={showPopup} onClose={handleClosePopup} />
         </Box>
         <Box mt={8}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Zaten bir hesabınız var mı? '}
-            <Link href="/login" color="primary">
-              Giriş yap
-            </Link>
-          </Typography>
+          
         </Box>
       </Container>
     </ThemeProvider>
