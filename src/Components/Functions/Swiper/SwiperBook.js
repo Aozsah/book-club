@@ -7,10 +7,6 @@ import axios from 'axios';
 import { Navigation, Pagination, A11y } from 'swiper';
 import './swiper.css'
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 function SwiperBook() {
     const [width, setWidth] = useState(0);
     const [books, setBooks] = useState([]);
