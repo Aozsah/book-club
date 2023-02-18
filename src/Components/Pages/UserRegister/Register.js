@@ -117,10 +117,7 @@ export default function Register() {
                 
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Buraya promosyon mail mesajı yazılacak!"
-                />
+                
               </Grid>
             </Grid>
             <Button
