@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './RegisterSuccessfulPopup.css';
 
-export default function RegisterSuccessfulPopup({ onClose }) {
+export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
   const popupRef = useRef(null);
 
   const handleClose = () => {
@@ -22,11 +22,15 @@ export default function RegisterSuccessfulPopup({ onClose }) {
     };
   }, [onClose, popupRef]);
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className="register-successful-popup">
       <div className="popup-content" ref={popupRef}>
-        <h2 className="popup-title">Kayıt Başarılı</h2>
-        <p className="popup-message">Başarıyla kayıt oldunuz!</p>
+        <h2 className="popup-title">Kaydınız başarıyla tamamlandı</h2>
+        <p className="popup-message">Hoş geldiniz!</p>
         <button className="popup-close" onClick={handleClose}>
           Tamam
         </button>

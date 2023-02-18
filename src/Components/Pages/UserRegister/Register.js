@@ -13,35 +13,20 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import RegisterSuccessfulPopup from './RegisterSuccessfulPopup';
 
-// Bu klasör kullanılacaksa RegisterMail,Name,Password ve Button dosyaları silinebilir...
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000/">
-        BookClub
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
-
-export default function Register() {
-  let navigate = useNavigate();
+function Register() {
+  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = React.useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    setShowPopup(true);
   };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
+  const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
@@ -102,22 +87,23 @@ export default function Register() {
                   id="password"
                   autoComplete="new-password"
                 />
-                
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Şifre"
+                  name="confirmPassword"
+                  label="Şifreyi Onayla"
                   type="password"
-                  id="password"
+                  id="confirmPassword"
                   autoComplete="new-password"
                 />
-                
               </Grid>
               <Grid item xs={12}>
-                
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="Bültenlere abone olmak istiyorum."
+                />
               </Grid>
             </Grid>
             <Button
@@ -125,11 +111,8 @@ export default function Register() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                navigate('/');
-              }}
             >
-              Kaydol
+              Kayıt Ol
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
@@ -139,10 +122,19 @@ export default function Register() {
               </Grid>
             </Grid>
           </Box>
-          
+          <RegisterSuccessfulPopup isOpen={showPopup} onClose={handleClosePopup} />
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Box mt={8}>
+          <Typography variant="body2" color="textSecondary" align="center">
+            {'Zaten bir hesabınız var mı? '}
+            <Link href="/login" color="primary">
+              Giriş yap
+            </Link>
+          </Typography>
+        </Box>
       </Container>
     </ThemeProvider>
   );
 }
+
+export default Register;
