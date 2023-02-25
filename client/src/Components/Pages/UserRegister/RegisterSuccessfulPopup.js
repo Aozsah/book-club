@@ -22,10 +22,6 @@ export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
     };
   }, [onClose, popupRef]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
     <div className="register-successful-popup">
       <div className="popup-content" ref={popupRef}>

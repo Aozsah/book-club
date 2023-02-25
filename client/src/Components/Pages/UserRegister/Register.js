@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -13,13 +14,36 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import RegisterSuccessfulPopup from './RegisterSuccessfulPopup';
 
-function Register() {
+export default function Register() {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = React.useState(false);
+  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowPopup(true);
+    axios
+      .post('http://localhost:3001/register', {
+        username,
+        email,
+        password,
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          setShowPopup(true);
+        } else {
+          console.log('Registration failed');
+        }
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 409) {
+          alert(error.response.data.msg);
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   const handleClosePopup = () => {
@@ -46,25 +70,16 @@ function Register() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Ad"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Soyad"
-                  name="lastName"
-                  autoComplete="family-name"
+                  id="username"
+                  label="Kullanıcı adı"
+                  name="username"
+                  autoComplete="username"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -75,6 +90,8 @@ function Register() {
                   label="Email"
                   name="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -86,6 +103,8 @@ function Register() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,6 +116,8 @@ function Register() {
                   type="password"
                   id="confirmPassword"
                   autoComplete="new-password"
+                  value={confirmPassword}
+                  onChange={(event) => setConfirmPassword(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -114,25 +135,12 @@ function Register() {
             >
               Kayıt Ol
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-              <Typography variant="body2" color="textSecondary" align="center">
-            {'Zaten bir hesabınız var mı? '}
-            <Link href="/login" color="primary">
-              Giriş yap
-            </Link>
-          </Typography>
-              </Grid>
-            </Grid>
           </Box>
-          <RegisterSuccessfulPopup isOpen={showPopup} onClose={handleClosePopup} />
+          {showPopup && <RegisterSuccessfulPopup onClose={handleClosePopup} />}
+
         </Box>
-        <Box mt={8}>
-          
-        </Box>
+
       </Container>
     </ThemeProvider>
   );
 }
-
-export default Register;

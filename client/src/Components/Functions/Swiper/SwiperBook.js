@@ -8,37 +8,37 @@ import { Navigation, Pagination, A11y } from 'swiper';
 import './swiper.css'
 
 function SwiperBook() {
-    const [width, setWidth] = useState(0);
-    const [books, setBooks] = useState([]);
-    const carousel = useRef();
+  const [books, setBooks] = useState([]);
 
-  
-    useEffect(() => {
-      axios ('https://dummyjson.com/products?limit=20')
-      .then((res) =>{ 
-        setBooks(res.data.products)
+  useEffect(() => {
+    axios.get('http://localhost:3001/books')
+      .then((res) => { 
+        setBooks(res.data.data);
       })
-    }, [])
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
-
     <Swiper 
-    modules={[Navigation, Pagination, A11y]}
-    spaceBetween={50}
-    slidesPerView={5}
-    navigation
-    pagination={{ clickable: true }}
-    
+      modules={[Navigation, Pagination, A11y]}
+      spaceBetween={50}
+      slidesPerView={5}
+      navigation
+      pagination={{ clickable: true }}
     >
       {books.map(book => {
-        return(
-      <SwiperSlide  key={book.id}>
-        <Link to={`/book/${book.id}`}>
-          <img className='bookImg' src={book.images[0]} alt="Resim Çalışmıyor!"/>
-        </Link>
-      </SwiperSlide>
-    )})}
+        return (
+          <SwiperSlide  key={book._id}>
+            <Link to={`/book/${book._id}`}>
+              <img className='bookImg' src={book.image} alt="Resim Çalışmıyor!"/>
+            </Link>
+          </SwiperSlide>
+        )
+      })}
     </Swiper>
   )
 }
+
   export default SwiperBook;

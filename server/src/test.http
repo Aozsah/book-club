@@ -38,10 +38,10 @@ POST http://localhost:3001/bookadd
 Content-Type: application/json
 
 {
-  "name": "testbook",
-  "author": "emremataraci",
+  "name": "matar",
+  "author": "matar",
   "description": "philosophy",
-  "image": "https://images-na.ssl-images-amazon.com/images/I/91M30FZFnUL.jpg"
+  "image": "https://binaries.templates.cdn.office.net/support/templates/tr-tr/lt22301254_quantized.png"
 }
 
 

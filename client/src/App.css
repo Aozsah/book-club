@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -60,6 +62,5 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url("https://preview.pixlr.com/images/800wm/1176/2/1176106312.jpg");
   opacity: .125;
 }

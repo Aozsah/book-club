@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
-export default function LoginForm() {
+export default function UserLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);

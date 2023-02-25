@@ -18,8 +18,7 @@ import Swiper from './Components/Functions/Swiper/SwiperBook';
 import Validation from './Components/Pages/Validation/Validation';
 import BookAdd from './Components/Pages/BookAdd/BookAdd';
 import BookClubAdd from './Components/Pages/BookClubAdd/BookClubAdd';
-import LoginSuccessfulPopup from './Components/Pages/UserLogin/LoginSuccessfulPopup';
-import Testlogin from './Components/Pages/UserLogin/Testlogin'
+import RegisterSuccessfulPopup from './Components/Pages/UserRegister/RegisterSuccessfulPopup';
 function App() {
 
 
@@ -48,8 +47,7 @@ function App() {
         <Route path='/validation' element={<Validation />} />
         <Route path='/bookadd' element={<BookAdd />} />
         <Route path='/bookclubadd' element={<BookClubAdd />} />
-        <Route path='/test' element={<Testlogin />} />
-        <Route path='/successful' element={<LoginSuccessfulPopup />} />
+        <Route path='/success' element={<RegisterSuccessfulPopup />} />
 
       </Routes>
       <Footer />
