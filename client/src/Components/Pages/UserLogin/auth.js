@@ -1,67 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Auth() {
+export default function Login() {
   const navigate = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/login', {
-        method: 'POST',
-        credentials: 'include',
+      const response = await fetch("http://localhost:4000/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: data.get('email'),
-          password: data.get('password'),
+          email,
+          password,
         }),
       });
 
       if (response.status === 200) {
-        setLoggedIn(true);
+        navigate("/dashboard");
       } else {
-        setError(true);
+        const error = await response.json();
+        setError(error.msg);
       }
-    } catch (error) {
-      console.error(error);
-      setError(true);
+    } catch (err) {
+      setError(err.message);
     }
   };
-
-  // Handle the error popup close event
-  const handleCloseError = () => {
-    setError(false);
-  };
-
-  useEffect(() => {
-    if (loggedIn) {
-      navigate("/dashboard");
-    }
-  }, [loggedIn]);
 
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <input type="email" name="email" />
-        <input type="password" name="password" />
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+        <br />
         <button type="submit">Login</button>
       </form>
-      {error && (
-        <div>
-          <p>Error: Login failed</p>
-          <button onClick={handleCloseError}>Close</button>
-        </div>
-      )}
+      {error && <p>{error}</p>}
     </div>
   );
 }
