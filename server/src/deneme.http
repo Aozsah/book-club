@@ -1,0 +1,48 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2NzMxOTIxNDksImV4cCI6MTY3MzM2NDk0OX0.3X7fB7uNA7XQ9PntFDC0goHk6YR3djBInnagm_pdc0s
+
+###
+GET http://localhost:3001/books
+
+###
+GET http://localhost:3001/users
+
+
+//--------------------------------------------------------------------------------
+
+
+#EXAMPLES
+
+###
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{
+    "username": "12331231231233123",
+    "password": "1",
+    "email": "1@gmail.com"
+}
+
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "username": "1233123",
+    "password": "1"
+}
+
+
+
+###
+POST http://localhost:3001/bookadd
+Content-Type: application/json
+
+{
+  "name": "matarın hayatı isimli kitap",
+  "author": "J.R.R. Tolkien",
+  "description": "A fantasy novel",
+  "image": "https://images-na.ssl-images-amazon.com/images/I/91M30FZFnUL.jpg"
+}
+
+

@@ -1,0 +1,123 @@
+const jwt = require("jsonwebtoken");
+
+const User = require('../models/user');
+
+exports.getAllUsers = async (req, res) => {
+    console.log("heyyyyyyyyyyyyyyyy")
+    try {
+      const users = await User.find({});
+      console.log("***********************",users);
+      res.status(200).send({ status: "success", data: users });
+    } catch (err) {
+      console.log("**********************",err);
+      res.status(500).send({ status: "error", msg: err });
+    }
+  };
+// ------------------------------------------------------------------
+exports.login = async (req, res) => {
+    try {
+        let createdObject = {
+            username: req.body.username,
+            password: req.body.password,
+        };
+        if (!(createdObject.username && createdObject.password)) {
+            res.status(400).send({
+                status: "fail",
+                msg: "Lütfen kullanıcı adı ve şifrenizi giriniz.",
+            });
+        }
+        let isUserExists = await model.findOne("user", {
+            username: createdObject.username,
+        });
+
+        if (isUserExists) {
+            if (
+                createdObject.username == isUserExists.username &&
+                createdObject.password == isUserExists.password
+            ) {
+                const token = jwt.sign(
+                    {
+                        user_id: isUserExists.ID,
+                    },
+                    process.env.USER_TOKEN_KEY,
+                    {
+                        expiresIn: "48h",
+                    }
+                );
+                res.status(200).send({
+                    status: 200,
+                    msg: "Giriş işlemi başarılı",
+                    token: token,
+                });
+            } else {
+                res.status(400).send({
+                    status: "fail",
+                    msg: "Kullanıcı adı veya şifre yanlış.",
+                });
+            }
+        } else {
+            res.status(404).send({
+                status: "fail",
+                msg: "Bu kullanıcı ismine kayıtlı hesap yok.",
+            });
+        }
+    } catch (err) {
+        console.log("error in login", err);
+        res.status(403).send({ status: "error", msg: err });
+        throw err;
+    }
+};
+// ------------------------------------------------------------------
+exports.register = async (req, res) => {
+    try {
+        const { username, password, email } = req.body;
+        if (!(username && password && email)) {
+            res.status(400).send({
+                status: "fail",
+                msg: "Lütfen kullanıcı adı, şifre ve e-posta adresinizi giriniz.",
+            });
+        }
+        const isUserExists = await User.findOne({ username: username });
+        if (isUserExists) {
+            res.status(409).send({
+                status: "fail",
+                msg: "Bu kullanıcı adı zaten alınmış.",
+            });
+        }
+        const newUser = new User({ username, password, email });
+        const savedUser = await newUser.save();
+        const token = jwt.sign(
+            {
+                user_id: savedUser._id,
+            },
+            process.env.USER_TOKEN_KEY,
+            {
+                expiresIn: "48h",
+            }
+        );
+        res.status(201).send({
+            status: "success",
+            message: "Kullanıcı başarıyla oluşturuldu.",
+            token: token,
+        });
+    } catch (err) {
+        console.log("error in register", err);
+        res.status(500).send({ status: "error", msg: err });
+        throw err;
+    }
+};
+// ------------------------------------------------------------------
+
+function extractToken(req) {
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.split(" ")[0] === "Bearer"
+    ) {
+        const token = req.headers.authorization.split(" ")[1];
+
+        const decodedToken = jwt.verify(token, process.env.USER_TOKEN_KEY);
+        const userID = decodedToken.user_id;
+        return userID ? userID : null;
+    }
+    return null;
+}
