@@ -1,13 +1,5 @@
 const { boomify } = require("boom");
 
-exports.getUserTodos = async (table, userID) => {
-    let response = await knex
-        .from(table)
-        .select()
-        .where("user_id", "=", userID);
-    return { todos: response };
-};
-
 exports.select = async (table, where) => {
     try {
         const query = knex(table).select().where(where).first();

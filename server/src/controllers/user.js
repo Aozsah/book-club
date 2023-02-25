@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
+const { $where } = require("../models/user");
 
 const User = require('../models/user');
 
 exports.getAllUsers = async (req, res) => {
-    console.log("heyyyyyyyyyyyyyyyy")
     try {
       const users = await User.find({});
       console.log("***********************",users);
@@ -16,55 +16,47 @@ exports.getAllUsers = async (req, res) => {
 // ------------------------------------------------------------------
 exports.login = async (req, res) => {
     try {
-        let createdObject = {
-            username: req.body.username,
-            password: req.body.password,
-        };
-        if (!(createdObject.username && createdObject.password)) {
-            res.status(400).send({
+        const { username, password } = req.body;
+        if (!username || !password) {
+            return res.status(400).send({
                 status: "fail",
-                msg: "Lütfen kullanıcı adı ve şifrenizi giriniz.",
+                msg: "Lütfen kullanıcı adı ve şifrenizi giriniz."
             });
         }
-        let isUserExists = await model.findOne("user", {
-            username: createdObject.username,
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(404).send({
+                status: "fail",
+                msg: "Bu kullanıcı ismine kayıtlı hesap yok."
+            });
+        }
+
+        if (password !== user.password) {
+            return res.status(400).send({
+                status: "fail",
+                msg: "Kullanıcı adı veya şifre yanlış."
+            });
+        }
+
+        const token = jwt.sign(
+            { user_id: user._id },
+            process.env.USER_TOKEN_KEY,
+            { expiresIn: "48h" }
+        );
+
+        res.status(200).send({
+            status: 200,
+            msg: "Giriş işlemi başarılı",
+            token: token
         });
 
-        if (isUserExists) {
-            if (
-                createdObject.username == isUserExists.username &&
-                createdObject.password == isUserExists.password
-            ) {
-                const token = jwt.sign(
-                    {
-                        user_id: isUserExists.ID,
-                    },
-                    process.env.USER_TOKEN_KEY,
-                    {
-                        expiresIn: "48h",
-                    }
-                );
-                res.status(200).send({
-                    status: 200,
-                    msg: "Giriş işlemi başarılı",
-                    token: token,
-                });
-            } else {
-                res.status(400).send({
-                    status: "fail",
-                    msg: "Kullanıcı adı veya şifre yanlış.",
-                });
-            }
-        } else {
-            res.status(404).send({
-                status: "fail",
-                msg: "Bu kullanıcı ismine kayıtlı hesap yok.",
-            });
-        }
     } catch (err) {
-        console.log("error in login", err);
-        res.status(403).send({ status: "error", msg: err });
-        throw err;
+        console.error(err);
+        res.status(500).send({
+            status: "error",
+            msg: $where(denemeregister1.password)
+        });
     }
 };
 // ------------------------------------------------------------------
@@ -102,7 +94,7 @@ exports.register = async (req, res) => {
         });
     } catch (err) {
         console.log("error in register", err);
-        res.status(500).send({ status: "error", msg: err });
+        res.status(500).send({ status: "error", msg: "hsadhsadhd"+err });
         throw err;
     }
 };
