@@ -23,8 +23,8 @@ function SwiperBook() {
   return (
     <Swiper 
       modules={[Navigation, Pagination, A11y]}
-      spaceBetween={50}
-      slidesPerView={5}
+      spaceBetween={0}
+      slidesPerView={4}
       navigation
       pagination={{ clickable: true }}
     >

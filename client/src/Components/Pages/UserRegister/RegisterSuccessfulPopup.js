@@ -17,10 +17,17 @@ export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
 
     document.addEventListener('mousedown', handleClickOutside);
 
+    const timeoutId = setTimeout(() => {
+      if (isOpen) {
+        onClose();
+      }
+    }, 3000);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      clearTimeout(timeoutId);
     };
-  }, [onClose, popupRef]);
+  }, [isOpen, onClose, popupRef]);
 
   return (
     <div className="register-successful-popup">

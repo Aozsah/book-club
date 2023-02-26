@@ -17,8 +17,13 @@ export default function LoginSuccessfulPopup({ onClose }) {
 
     document.addEventListener('mousedown', handleClickOutside);
 
+    const timeout = setTimeout(() => {
+      onClose();
+    }, 3000);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      clearTimeout(timeout);
     };
   }, [onClose, popupRef]);
 

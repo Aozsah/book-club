@@ -23,7 +23,7 @@ const theme = createTheme();
 export default function UserLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = (event) => {
@@ -33,7 +33,7 @@ export default function UserLogin() {
       .post("http://localhost:3001/login", { username, password })
       .then((response) => {
         if (response.status === 200) {
-          setLoggedIn(true);
+          setShowPopup(true);
         }
       })
       .catch((error) => {
@@ -104,7 +104,7 @@ export default function UserLogin() {
               </Grid>
             </Grid>
           </Box>
-          {loggedIn && <LoginSuccessfulPopup onClose={() => setLoggedIn(false)} />}
+          {showPopup && <LoginSuccessfulPopup onClose={() => setShowPopup(false)} />}
           {errorMessage && (
             <LoginErrorPopup onClose={handleCloseError} errorMessage={errorMessage} />
           )}

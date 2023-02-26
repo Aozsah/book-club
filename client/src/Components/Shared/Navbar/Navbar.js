@@ -1,10 +1,35 @@
 import './Navbar.css';
-import React from 'react';
+import React, { useState, useEffect, history } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Stack } from '@chakra-ui/react';
 import BookHubLogo from '..//..//..//assets/images/BookHubLogo.png';
+import jwt_decode from 'jwt-decode';
 
-function Navbar({ isLoggedIn }) {
+function Navbar({ history }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decodedToken = jwt_decode(token);
+      if (decodedToken.exp * 1000 > Date.now()) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    history.push('/');
+  };
+  
+
   return (
     <nav className='nav'>
       <div className='nav-left'>
@@ -16,32 +41,34 @@ function Navbar({ isLoggedIn }) {
       </div>
       <div className='nav-right'>
         <Stack direction='row' spacing={3}>
+          <Link to='/books'>
+            <Button className='navButtons' colorScheme='blue'>
+              Kitaplar
+            </Button>
+          </Link>
+          <Link to='/bookclubs'>
+            <Button className='navButtons' colorScheme='teal'>
+              Kitap Kulüpleri
+            </Button>
+          </Link>
           {isLoggedIn ? (
             <>
-              <Link to='/bookclubs'>
-                <Button className='navButtons' colorScheme='teal'>
-                  Kitap Kulüpleri
+              <Link to='/contactus'>
+                <Button className='navButtons' colorScheme='twitter'>
+                  İletişim
                 </Button>
               </Link>
-              <Link to='/books'>
-                <Button className='navButtons' colorScheme='blue'>
-                  Kitaplar
+              <Link to='/profile'>
+                <Button className='navButtons' colorScheme='twitter'>
+                  Profil
                 </Button>
               </Link>
+              <Button className='navButtons' colorScheme='red' onClick={handleLogout}>
+                Çıkış Yap
+              </Button>
             </>
           ) : (
             <>
-             
-              <Link to='/books'>
-                <Button className='navButtons' colorScheme='blue'>
-                  Kitaplar
-                </Button>
-              </Link>
-              <Link to='/bookclubs'>
-                <Button className='navButtons' colorScheme='teal'>
-                  Kitap Kulüpleri
-                </Button>
-              </Link>
               <Link to='/register'>
                 <Button className='navButtons' colorScheme='teal'>
                   Kaydol
@@ -54,16 +81,6 @@ function Navbar({ isLoggedIn }) {
               </Link>
             </>
           )}
-          <Link to='/contactus'>
-            <Button className='navButtons' colorScheme='twitter'>
-              İletişim
-            </Button>
-          </Link>
-          <Link to='/profile'>
-            <Button className='navButtons' colorScheme='twitter'>
-              Profil
-            </Button>
-          </Link>
         </Stack>
       </div>
     </nav>
