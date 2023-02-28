@@ -1,47 +1,36 @@
-import './BookClub.css'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import { useMatch } from 'react-router-dom';
+import axios from 'axios';
+import './BookClub.css';
 
-function BookClub() {
-  const [bookClub, setBookClub] = useState({})
-  const { id } = useParams();
+const BookClub = () => {
+  const match = useMatch('/bookclub/:id');
+  const [bookClub, setBookClub] = useState({});
 
   useEffect(() => {
-    axios(`https://dummyjson.com/products/${id}`)
-    .then((res) => {
-      setBookClub(res.data)
-      console.log(res)
-    })
-
-  }, [id])
+    axios.get(`http://localhost:3001/bookclub/${match.params.id}`)
+      .then(response => {
+        setBookClub(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [match.params.id]);
 
   return (
-    <div className='bookClub_container'>
-      <div>
-        <ul>
-          <li>
-            <h1 className='bookClubTitle'>{bookClub.title} </h1>
-              <img className='bookClubImg' src={bookClub.images} alt='bookClub-img'/>
-                <div className='bookClubFooter'>
-                  <h2 className='bookClubAuthor'>Author</h2>
-                  <a className='bookClubLink' href={`/bookClub/${parseInt(id) +1}`}>Next bookClub ({parseInt(id)+1})</a>
-                
-                </div>
-                <div className='bookClubDescription'>
-                <code>{JSON.stringify(bookClub.description)}</code>
-                </div>
-          </li>
-        </ul>
-      </div>
-     
-      <br />
-      <br />
-      <br />
+    <div className="bookClub-container">
+      <h2 className="bookClub-title">Book Club Details</h2>
+      {bookClub && (
+        <div className="bookClub-details">
+          <img className="bookClub-cover" src={bookClub.image} alt="Book Cover" />
+          <h3 className="bookClub-name">{bookClub.name}</h3>
+          <p className="bookClub-description">{bookClub.description}</p>
+          <p className="bookClub-nextMeeting">Next Meeting: {bookClub.nextMeeting}</p>
+          <p className="bookClub-location">Location: {bookClub.location}</p>
+        </div>
+      )}
     </div>
-    
-    
-  )
-}
+  );
+};
 
-export default BookClub
+export default BookClub;

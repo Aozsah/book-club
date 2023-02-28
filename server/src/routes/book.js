@@ -12,10 +12,11 @@ const routes = [
         handler: bookControllers.createBook,
     },
     {
-        method: "PUT",
+        method: "GET",
         path: "/book/:id",
-        handler: bookControllers.updateBook,
+        handler: bookControllers.getBookById,
     },
+    
     {
         method: "DELETE",
         path: "/book/:id",

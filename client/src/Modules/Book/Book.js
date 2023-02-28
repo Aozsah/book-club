@@ -1,27 +1,55 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './Book.css';
 
 const Book = () => {
+  const { id } = useParams();
   const [book, setBook] = useState({});
+  const [nextBookId, setNextBookId] = useState(null);
 
   useEffect(() => {
-    fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&format=json&jscmd=data')
-      .then(response => response.json())
-      .then(data => {
-        setBook(data['ISBN:0451526538']);
+    axios.get(`http://localhost:3001/book/${id}`)
+      .then(response => {
+        setBook(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
       });
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    if (!book._id) {
+      return;
+    }
+
+    axios.get(`http://localhost:3001/book/next/${book._id}`)
+      .then(response => {
+        setNextBookId(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [book]);
+
+  const handleNextClick = () => {
+    window.location.href = `/book/${nextBookId}`;
+  };
 
   return (
     <div className="book-container">
       <h2>Book Details</h2>
-      {book.authors && (
+      {book._id && (
         <div>
-          <img className="book-cover" src={book.cover.large} alt="Book Cover" />
+          <img className="book-cover" src={book.image} alt="Book Cover" />
           <div className="book-details">
-            <p className="book-author">Author: {book.authors[0].name}</p>
-            <p className="book-publish-date">Publication Date: {book.publish_date}</p>
+            <p className="book-author">Author: {book.author}</p>
+            <p className="book-name">Name: {book.name}</p>
             <p className="book-description">Description: {book.description}</p>
+            {nextBookId && (
+              <button onClick={handleNextClick}>Next</button>
+            )}
+            
           </div>
         </div>
       )}

@@ -1,4 +1,3 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
@@ -7,41 +6,38 @@ import axios from 'axios';
 import { Navigation, Pagination, A11y } from 'swiper';
 import './swiper.css'
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 function SwiperBookClub() {
-    const [width, setWidth] = useState(0);
-    const [bookClubs, setbookClubs] = useState([]);
-    const carousel = useRef();
+  const [bookClubs, setBookClubs] = useState([]);
 
-  
-    useEffect(() => {
-      axios ('https://dummyjson.com/products?limit=20')
-      .then((res) =>{ 
-        setbookClubs(res.data.products)
+  useEffect(() => {
+    axios.get('http://localhost:3001/bookclubs')
+      .then((res) => { 
+        setBookClubs(res.data.data);
       })
-    }, [])
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
-
     <Swiper 
-    modules={[Navigation, Pagination, A11y]}
-    spaceBetween={50}
-    slidesPerView={6}
-    navigation
-    pagination={{ clickable: true }}
+      modules={[Navigation, Pagination, A11y]}
+      spaceBetween={0}
+      slidesPerView={4}
+      navigation
+      pagination={{ clickable: true }}
     >
       {bookClubs.map(bookClub => {
-        return(
-      <SwiperSlide  key={bookClub.id}>
-        <Link to={`/bookClub/${bookClub.id}`}>
-          <img className='bookClubImg' src={bookClub.images[0]} alt="Resim Çalışmıyor!"/>
-        </Link>
-      </SwiperSlide>
-    )})}
+        return (
+          <SwiperSlide  key={bookClub._id}>
+            <Link to={`/bookclub/${bookClub._id}`}>
+              <img className='bookClubImg' src={bookClub.image} alt="Resim Çalışmıyor!"/>
+            </Link>
+          </SwiperSlide>
+        )
+      })}
     </Swiper>
   )
 }
-  export default SwiperBookClub;
+
+export default SwiperBookClub;

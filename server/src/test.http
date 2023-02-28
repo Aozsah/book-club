@@ -1,10 +1,10 @@
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJpYXQiOjE2NzMxOTIxNDksImV4cCI6MTY3MzM2NDk0OX0.3X7fB7uNA7XQ9PntFDC0goHk6YR3djBInnagm_pdc0s
 
 ###
-GET http://localhost:3001/books
+GET http://localhost:3001/bookclub/63fe17c2ee9bdea2cc48b642
 
 ###
-GET http://localhost:3001/users
+GET http://localhost:3001/bookclubs
 
 
 //--------------------------------------------------------------------------------
@@ -32,7 +32,6 @@ Content-Type: application/json
     "password": "1"
 }
 
-
 ###
 POST http://localhost:3001/bookadd
 Content-Type: application/json
@@ -42,6 +41,21 @@ Content-Type: application/json
   "author": "matar",
   "description": "philosophy",
   "image": "https://binaries.templates.cdn.office.net/support/templates/tr-tr/lt22301254_quantized.png"
+}
+
+
+
+
+
+###
+POST http://localhost:3001/bookclubadd
+Content-Type: application/json
+
+{
+  "name": "matar",
+  "genre": "philosophy",
+  "description": "test description",
+  "image": "https://binaries.templates.cdn.office.net/support/templates/tr-tr/lt66804846_quantized.png"
 }
 
 

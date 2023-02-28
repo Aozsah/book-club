@@ -44,6 +44,12 @@ userRoutes.forEach((route, index) => {
   fastify.route(route);
 });
 
+const bookClubRoutes = require("./routes/bookClub");
+
+bookClubRoutes.forEach((route, index) => {
+  fastify.route(route);
+});
+
 const bookRoutes = require("./routes/book");
 
 bookRoutes.forEach((route, index) => {
