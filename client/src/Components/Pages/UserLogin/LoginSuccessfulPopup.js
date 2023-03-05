@@ -1,11 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 import './LoginSuccessfulPopup.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginSuccessfulPopup({ onClose }) {
   const popupRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleClose = () => {
     onClose();
+    navigate('/');
+
   };
 
   useEffect(() => {
@@ -17,15 +21,18 @@ export default function LoginSuccessfulPopup({ onClose }) {
 
     document.addEventListener('mousedown', handleClickOutside);
 
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose, popupRef]);
+
+  useEffect(() => {
     const timeout = setTimeout(() => {
       onClose();
     }, 3000);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      clearTimeout(timeout);
-    };
-  }, [onClose, popupRef]);
+    return () => clearTimeout(timeout);
+  }, [onClose]);
 
   return (
     <div className="login-successful-popup">

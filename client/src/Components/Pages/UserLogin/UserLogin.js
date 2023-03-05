@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import {
   Avatar,
@@ -17,28 +17,35 @@ import {
 import LoginSuccessfulPopup from "./LoginSuccessfulPopup";
 import LoginErrorPopup from "./LoginErrorPopup";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import "./AxiosConfig";
 
 const theme = createTheme();
 
 export default function UserLogin() {
+  const auth = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  let navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:3001/login", { username, password })
+    axios.post("http://localhost:3001/login", { username, password })
       .then((response) => {
         if (response.status === 200) {
+          localStorage.setItem("token", response.data.token);
+          auth.setIsLoggedIn(true);
           setShowPopup(true);
+          setErrorMessage("");
         }
       })
       .catch((error) => {
         setErrorMessage("Kullanıcı adı veya şifre yanlış.");
         setPassword("");
+        setShowPopup(false);
       });
   };
 
@@ -46,14 +53,10 @@ export default function UserLogin() {
     setErrorMessage("");
   };
 
-  let navigate = useNavigate();
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <Box
-          sx={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}
-        >
+        <Box sx={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}>
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }} />
           <Typography component="h1" variant="h5">
             Giriş yap
@@ -70,46 +73,43 @@ export default function UserLogin() {
               autoFocus
               value={username}
               onChange={(event) => setUsername(event.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Şifre"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Beni hatırla"
-            />
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-              Giriş yap
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="/resetpassword" variant="body2">
-                  Şifreni mi unuttun?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Typography component="span">{"Bir hesabın yok mu? "}</Typography>
-                <Link href="/register" variant="body2">
-                  Hemen kaydol
-                </Link>
-              </Grid>
+            />            <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Şifre"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Beni hatırla"
+          />
+          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            Giriş yap
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="/resetpassword" variant="body2">
+                Şifreni mi unuttun?
+              </Link>
             </Grid>
-          </Box>
-          {showPopup && <LoginSuccessfulPopup onClose={() => setShowPopup(false)} />}
-          {errorMessage && (
-            <LoginErrorPopup onClose={handleCloseError} errorMessage={errorMessage} />
-          )}
+            <Grid item>
+              <Typography component="span">{"Bir hesabın yok mu? "}</Typography>
+              <Link href="/register" variant="body2">
+                Hemen kaydol
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
-      </Container>
-    </ThemeProvider>
-  );
+        {showPopup && <LoginSuccessfulPopup onClose={() => setShowPopup(true)} />}
+        {errorMessage && <LoginErrorPopup onClose={handleCloseError} errorMessage={errorMessage} />}
+      </Box>
+    </Container>
+  </ThemeProvider>
+);
 }
