@@ -1,11 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import './RegisterSuccessfulPopup.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
+  const navigate = useNavigate()
   const popupRef = useRef(null);
 
   const handleClose = () => {
     onClose();
+    navigate("/")
   };
 
   useEffect(() => {
@@ -28,6 +31,14 @@ export default function RegisterSuccessfulPopup({ isOpen, onClose }) {
       clearTimeout(timeoutId);
     };
   }, [isOpen, onClose, popupRef]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [onClose]);
 
   return (
     <div className="register-successful-popup">

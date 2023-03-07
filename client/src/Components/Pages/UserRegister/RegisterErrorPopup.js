@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './registerErrorPopup.css';
+import { useEffect } from 'react';
 
 export default function RegisterErrorPopup({ onClose, errorMessage }) {
   const popupRef = useRef(null);
@@ -21,6 +22,13 @@ export default function RegisterErrorPopup({ onClose, errorMessage }) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [onClose, popupRef]);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [onClose]);
 
   return (
     <div className="register-error-popup">
