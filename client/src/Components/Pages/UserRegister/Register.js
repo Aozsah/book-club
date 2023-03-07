@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import RegisterSuccessfulPopup from './RegisterSuccessfulPopup';
+import validator from "email-validator";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -24,17 +25,24 @@ export default function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+  
+    if (!validator.validate(email)) {
+      alert("Lütfen geçerli bir e-posta adresi girin.");
+      return;
+    }
+  
     axios
-      .post('http://localhost:3001/register', {
+      .post("http://localhost:3001/register", {
         username,
         email,
         password,
+        confirmPassword,
       })
       .then((response) => {
         if (response.status === 201) {
           setShowPopup(true);
         } else {
-          console.log('Registration failed');
+          console.log("Registration failed");
         }
       })
       .catch((error) => {
@@ -44,6 +52,9 @@ export default function Register() {
           console.log(error);
         }
       });
+      if (password != confirmPassword){
+        return alert("Girdiğiniz şifreler eşleşmiyor!")
+      }
   };
 
   const handleClosePopup = () => {

@@ -35,14 +35,18 @@ export default function UserLogin() {
 
     axios.post("http://localhost:3001/login", { username, password })
       .then((response) => {
+        
         if (response.status === 200) {
+          console.log(response.status)
           localStorage.setItem("token", response.data.token);
-          auth.setIsLoggedIn(true);
+          // auth.setIsLoggedIn(true);
           setShowPopup(true);
-          setErrorMessage("");
+        } else {
+          console.log('Login failed');
         }
       })
       .catch((error) => {
+        console.log(error)
         setErrorMessage("Kullanıcı adı veya şifre yanlış.");
         setPassword("");
         setShowPopup(false);
@@ -53,8 +57,12 @@ export default function UserLogin() {
     setErrorMessage("");
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
   return (
     <ThemeProvider theme={theme}>
+      
       <Container component="main" maxWidth="xs">
         <Box sx={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}>
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }} />
@@ -106,7 +114,9 @@ export default function UserLogin() {
             </Grid>
           </Grid>
         </Box>
-        {showPopup && <LoginSuccessfulPopup onClose={() => setShowPopup(true)} />}
+        
+        {showPopup && <LoginSuccessfulPopup onClose={() => setShowPopup(false)} />}
+        
         {errorMessage && <LoginErrorPopup onClose={handleCloseError} errorMessage={errorMessage} />}
       </Box>
     </Container>
