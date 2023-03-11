@@ -37,10 +37,10 @@ POST http://localhost:3001/bookadd
 Content-Type: application/json
 
 {
-  "name": "furkan",
-  "author": "furkan",
-  "description": "furkan zaten sacma sapan seyler okur :d",
-  "image": "https://media.licdn.com/dms/image/C4D03AQHmHUh3pMXCzQ/profile-displayphoto-shrink_400_400/0/1640553030384?e=1683763200&v=beta&t=J3V2wfSVVBGOXxHz5THbyWnWYfRKvegvYubRQlVXDAI"
+  "name": "1",
+  "author": "1",
+  "description": "1212",
+  "image": "https://binaries.templates.cdn.office.net/support/templates/tr-tr/lt22301254_quantized.png"
 }
 
 

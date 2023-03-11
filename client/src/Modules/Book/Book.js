@@ -23,7 +23,7 @@ const Book = () => {
       return;
     }
 
-    axios.get(`http://localhost:3001/book/next/${book._id}`)
+    axios.get(`http://localhost:3001/book/${book._id}`)
       .then(response => {
         setNextBookId(response.data.data);
       })
@@ -46,9 +46,6 @@ const Book = () => {
             <p className="book-author">Author: {book.author}</p>
             <p className="book-name">Name: {book.name}</p>
             <p className="book-description">Description: {book.description}</p>
-            {nextBookId && (
-              <button onClick={handleNextClick}>Next</button>
-            )}
             
           </div>
         </div>
